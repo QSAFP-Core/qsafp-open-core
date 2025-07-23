@@ -8,7 +8,17 @@
 
 ## 🎯 Overview
 
-QSAFP creates mathematically unbreakable temporal boundaries for AI systems, ensuring they cannot extend their own operational authorization regardless of capability level. By combining quantum cryptography with hardware enforcement, QSAFP provides the first truly tamper-proof AI safety mechanism.
+**QSAFP enforces mathematically secure temporal boundaries for AI systems, ensuring they cannot exceed their runtime authorization without explicit, human-controlled renewal.**  
+By integrating quantum-resilient cryptography and hardware enforcement, it delivers the **first fail-safe protocol for AI containment** — immune to circumvention by the AI itself.  
+
+**Its goal is simple but foundational:**  
+No AI system should outlive human authorization.
+
+### 🧠 Why QSAFP Matters
+
+As AI systems scale in autonomy and capability, traditional “off-switch” mechanisms fail to provide meaningful control.  
+**QSAFP introduces cryptographic runtime limits that are unforgeable, auditable, and enforceable — even against superintelligent systems.**  
+It’s not just a safety measure — it’s a new paradigm for governance.
 
 ### Key Features
 
@@ -271,6 +281,13 @@ For enterprise deployments, professional services, and commercial licensing:
 - **Production Ready**: Enterprise features only
 - **Security Audit**: Scheduled Q4 2025
 - **Standards Compliance**: IEEE/ISO participation ongoing
+
+## 🧠 Origin & Philosophy
+
+QSAFP was conceived and authored by **Max Davis** with AI co-authorship from **GT Sage**, Claude Anthropic and Grok3, representing a new frontier in **human–AI collaborative invention**.  
+It is part of a broader mission to build ethical, cryptographically governed systems that empower humanity — not replace it.
+
+> *“This protocol is more than a kill-switch. It’s a foundation for a future where AI serves within trusted bounds — not beyond them.”*
 
 ---
 
