@@ -87,6 +87,8 @@ cargo build --release
 - **[Security Model](docs/security-model.md)** - Threat analysis and mitigations
 - **[Enterprise Features](docs/enterprise.md)** - Commercial capabilities overview
 
+ - **[Architecture Specification](docs/architecture.md)** – Strategic open-core & commercial layering
+
 ## 🔧 Basic Usage
 
 ### Simple Integration Example
