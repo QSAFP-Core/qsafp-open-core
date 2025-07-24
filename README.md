@@ -81,13 +81,24 @@ cargo build --release
 
 ## 📖 Documentation
 
-- **[Protocol Specification](docs/protocol-spec.md)** - Technical protocol details
-- **[Integration Guide](docs/integration-guide.md)** - AI framework integration
-- **[API Reference](docs/api-reference.md)** - Complete API documentation
-- **[Security Model](docs/security-model.md)** - Threat analysis and mitigations
-- **[Enterprise Features](docs/enterprise.md)** - Commercial capabilities overview
+📄 The full protocol and architecture documentation is available here:  
+👉 **[https://bwrci.org/qsafp](https://bwrci.org/qsafp)**
 
- - **[Architecture Specification](docs/architecture.md)** – Strategic open-core & commercial layering
+_Our GitHub-hosted documentation is temporarily unavailable. We are actively restoring open-access mirrors to ensure collaboration continues._
+
+---
+
+<!-- Original doc links preserved below for reactivation -->
+
+<!--
+- **[Protocol Specification](docs/protocol-spec.md)**
+- **[Integration Guide](docs/integration-guide.md)**
+- **[API Reference](docs/api-reference.md)**
+- **[Security Model](docs/security-model.md)**
+- **[Enterprise Features](docs/enterprise.md)**
+- **[Architecture Specification](docs/architecture.md)**
+-->
+
 
 ## 🔧 Basic Usage
 
