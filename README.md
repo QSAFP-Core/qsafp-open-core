@@ -224,7 +224,7 @@ make security-audit
 
 ### Reporting Security Issues
 
-Please report security vulnerabilities to security@qsafp.org. Do not report security issues through public GitHub issues.
+Please report security vulnerabilities to security@bwrci.org. Do not report security issues through public GitHub issues.
 
 ### Security Model
 
@@ -244,30 +244,30 @@ This project is licensed under the GNU Affero General Public License v3.0 - see 
 **AGPL v3.0 Summary**: Any organization that uses QSAFP open source components in a network service must make their complete source code available under the same license. This ensures the ecosystem remains open and collaborative.
 
 ### Commercial Licensing Exception
-Organizations requiring proprietary use or SaaS deployment without source code disclosure can obtain commercial licenses. Contact enterprise@qsafp.org for commercial licensing options.
+Organizations requiring proprietary use or SaaS deployment without source code disclosure can obtain commercial licenses. Contact enterprise@bwrci.org for commercial licensing options.
 
 ### Patent Grant
 Patent-pending technology is licensed royalty-free for open source implementations. Commercial use requires enterprise licensing.
 
 ### Enterprise Features
-Enterprise components require separate commercial licensing. Contact enterprise@qsafp.org for details.
+Enterprise components require separate commercial licensing. Contact enterprise@bwrci.org for details.
 
 ## 🏢 Enterprise Support
 
 For enterprise deployments, professional services, and commercial licensing:
 
-- **Website**: https://qsafp.com
-- **Email**: enterprise@qsafp.org  
-- **Support**: https://support.qsafp.com
-- **Sales**: sales@qsafp.org
+- **Website**: https://bwrci.org 
+- **Email**: enterprise@bwrci.org  
+- **Support**: support@bwrci.org
+- **Sales**: sales@bwrci.org
 
 ## 🔗 Links
 
-- **Website**: https://qsafp.com
-- **Documentation**: https://docs.qsafp.com
-- **Community Forum**: https://community.qsafp.com
-- **Blog**: https://blog.qsafp.com
-- **Twitter**: @qsafp_official
+- **Website**: https://bwrci.org 
+- **Documentation**: https://bwrci.org
+- **Community Forum**: coming soon
+- **Blog**: coming soon
+- **Twitter**: @upd8capitalism 
 
 ## 🙏 Acknowledgments
 
