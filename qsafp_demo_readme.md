@@ -10,7 +10,7 @@
 
 ## 🚀 **Try It Now**
 
-**[→ Launch Interactive Demo]([https://yourname.github.io/qsafp-demo](https://qsafp-core.github.io/qsafp-open-core/)) ←**
+**[→ Launch Interactive Demo](https://qsafp-core.github.io/qsafp-open-core/) ←**
 
 No installation required. Works in any modern browser.
 
