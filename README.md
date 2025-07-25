@@ -278,7 +278,8 @@ For enterprise deployments, professional services, and commercial licensing:
 - **Documentation**: https://bwrci.org
 - **Community Forum**: coming soon
 - **Blog**: coming soon
-- **Twitter**: @upd8capitalism 
+- **Twitter**: @upd8capitalism
+- 👾 [FAQ.md](FAQ.md) – Common questions and technical philosophy 
 
 ## 🙏 Acknowledgments
 
