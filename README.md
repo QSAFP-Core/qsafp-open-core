@@ -82,7 +82,7 @@ cargo build --release
 ## 📖 Documentation
 
 📄 The full protocol and architecture documentation is available here:  
-👉 **[https://bwrci.org/qsafp](https://bwrci.org/qsafp)**
+👉 **[https://qsafp.org(https://qsafp.org)**
 
 _Our GitHub-hosted documentation is temporarily unavailable. We are actively restoring open-access mirrors to ensure collaboration continues._
 
