@@ -231,6 +231,8 @@ make security-audit
 - **Testing**: Unit tests, integration tests, and security tests
 - **Performance**: Optimization and benchmarking
 
+[![Discussions](https://img.shields.io/badge/Discussions-Join_the_Conversation-blueviolet)](https://github.com/qsafp-core/qsafp-open-core/discussions)
+
 ## 🛡️ Security
 
 ### Reporting Security Issues
