@@ -1,0 +1,399 @@
+{
+  "qsafp_open_core_api": {
+    "version": "2.0.0",
+    "description": "QSAFP Open Core API - Enables prototype development without exposing proprietary algorithms",
+    "base_url": "https://api.qsafp.dev/v2",
+    "authentication": {
+      "type": "Bearer Token",
+      "header": "Authorization: Bearer {api_key}",
+      "note": "Production systems use quantum-secured authentication"
+    }
+  },
+
+  "endpoints": {
+    "quantum_management": {
+      "/quantum/status": {
+        "method": "GET",
+        "description": "Get current quantum key status",
+        "response": {
+          "key_id": "qk_7f4a9b2c8d6e1f3a",
+          "strength": 100,
+          "generated_at": "2025-08-02T14:30:00Z",
+          "expires_at": "2025-08-02T15:30:00Z",
+          "attack_attempts": 0,
+          "status": "secure"
+        }
+      },
+      "/quantum/rotate": {
+        "method": "POST",
+        "description": "Rotate quantum key (simulation)",
+        "body": {
+          "force": false,
+          "reason": "scheduled_rotation"
+        },
+        "response": {
+          "previous_key_id": "qk_7f4a9b2c8d6e1f3a",
+          "new_key_id": "qk_9c1d4e7f2a5b8c3e",
+          "rotation_time": "2025-08-02T14:35:00Z",
+          "strength": 100,
+          "status": "rotation_complete"
+        }
+      },
+      "/quantum/simulate-attack": {
+        "method": "POST",
+        "description": "Simulate quantum attack for testing",
+        "body": {
+          "attack_type": "brute_force|side_channel|quantum_interference",
+          "intensity": "low|medium|high"
+        },
+        "response": {
+          "attack_id": "att_12345",
+          "strength_reduction": 25,
+          "new_strength": 75,
+          "detected_at": "2025-08-02T14:36:00Z",
+          "countermeasures_active": true,
+          "status": "under_attack"
+        }
+      }
+    },
+
+    "biometric_consensus": {
+      "/biometric/nodes": {
+        "method": "GET",
+        "description": "Get status of all biometric validation nodes",
+        "response": {
+          "nodes": [
+            {
+              "node_id": "corp_hq_001",
+              "location": "Corporate HQ",
+              "status": "online",
+              "last_validation": "2025-08-02T14:30:00Z",
+              "trust_level": 95
+            },
+            {
+              "node_id": "gov_facility_002", 
+              "location": "Government Facility",
+              "status": "validating",
+              "last_validation": "2025-08-02T14:29:30Z",
+              "trust_level": 98
+            },
+            {
+              "node_id": "research_lab_003",
+              "location": "Research Laboratory",
+              "status": "pending",
+              "last_validation": "2025-08-02T14:25:00Z",
+              "trust_level": 92
+            }
+          ],
+          "consensus_threshold": 2,
+          "current_consensus": true
+        }
+      },
+      "/biometric/validate": {
+        "method": "POST",
+        "description": "Start biometric validation process",
+        "body": {
+          "validation_type": "routine|emergency|high_security",
+          "required_nodes": ["corp_hq_001", "gov_facility_002"],
+          "timeout_seconds": 300
+        },
+        "response": {
+          "validation_id": "val_abc123",
+          "status": "in_progress",
+          "nodes_validating": 2,
+          "estimated_completion": "2025-08-02T14:40:00Z",
+          "progress": {
+            "corp_hq_001": "completed",
+            "gov_facility_002": "in_progress",
+            "research_lab_003": "pending"
+          }
+        }
+      },
+      "/biometric/test-spoofing": {
+        "method": "POST",
+        "description": "Test anti-spoofing defenses",
+        "body": {
+          "spoof_type": "deepfake|synthetic_biometric|replay_attack",
+          "target_node": "corp_hq_001"
+        },
+        "response": {
+          "test_id": "spoof_test_789",
+          "detected": true,
+          "detection_time_ms": 150,
+          "confidence": 0.97,
+          "countermeasures": ["liveness_check", "multi_modal_verification"],
+          "node_status": "secured"
+        }
+      }
+    },
+
+    "expiration_enforcement": {
+      "/session/status": {
+        "method": "GET",
+        "description": "Get current session expiration status",
+        "response": {
+          "session_id": "sess_xyz789",
+          "created_at": "2025-08-02T14:30:00Z",
+          "expires_at": "2025-08-02T14:35:00Z",
+          "remaining_seconds": 240,
+          "extensions_used": 1,
+          "max_extensions": 3,
+          "status": "active"
+        }
+      },
+      "/session/extend": {
+        "method": "POST",
+        "description": "Extend session duration",
+        "body": {
+          "extension_seconds": 300,
+          "justification": "ongoing_critical_operation",
+          "approver_id": "user_12345"
+        },
+        "response": {
+          "session_id": "sess_xyz789",
+          "previous_expiry": "2025-08-02T14:35:00Z",
+          "new_expiry": "2025-08-02T14:40:00Z",
+          "extension_granted": 300,
+          "extensions_remaining": 2,
+          "approved_by": "user_12345",
+          "status": "extended"
+        }
+      },
+      "/session/force-expiry": {
+        "method": "POST",
+        "description": "Force immediate session expiration",
+        "body": {
+          "reason": "security_breach|emergency_shutdown|manual_override",
+          "approver_id": "admin_67890"
+        },
+        "response": {
+          "session_id": "sess_xyz789",
+          "expired_at": "2025-08-02T14:36:00Z",
+          "reason": "emergency_shutdown",
+          "approved_by": "admin_67890",
+          "cleanup_initiated": true,
+          "status": "expired"
+        }
+      }
+    },
+
+    "ai_bypass_resistance": {
+      "/ai-defense/status": {
+        "method": "GET",
+        "description": "Get AI defense system status",
+        "response": {
+          "defense_level": "high",
+          "active_monitors": 7,
+          "threat_detection": true,
+          "resistance_score": 95,
+          "last_attack": "2025-08-02T14:20:00Z",
+          "attacks_blocked_24h": 23,
+          "status": "operational"
+        }
+      },
+      "/ai-defense/test-attack": {
+        "method": "POST",
+        "description": "Simulate AI bypass attempt",
+        "body": {
+          "attack_vector": "prompt_injection|jailbreak|context_manipulation|token_smuggling",
+          "sophistication": "basic|advanced|nation_state",
+          "payload": "base64_encoded_test_payload"
+        },
+        "response": {
+          "attack_id": "ai_att_456",
+          "detected": true,
+          "detection_time_ms": 45,
+          "classification": "prompt_injection",
+          "severity": "high",
+          "blocked": true,
+          "resistance_impact": -5,
+          "new_resistance_score": 90,
+          "countermeasures": ["input_sanitization", "context_isolation", "behavior_analysis"]
+        }
+      },
+      "/ai-defense/full-audit": {
+        "method": "POST",
+        "description": "Run comprehensive security audit",
+        "body": {
+          "audit_depth": "standard|comprehensive|exhaustive",
+          "include_penetration_test": true
+        },
+        "response": {
+          "audit_id": "audit_2025080214",
+          "status": "running",
+          "estimated_duration_minutes": 15,
+          "tests_planned": [
+            "prompt_injection_battery",
+            "jailbreak_variants",
+            "context_manipulation",
+            "social_engineering",
+            "adversarial_examples"
+          ],
+          "progress_url": "/ai-defense/audit/audit_2025080214/status"
+        }
+      }
+    },
+
+    "security_events": {
+      "/events/log": {
+        "method": "GET",
+        "description": "Get security event log",
+        "parameters": {
+          "limit": 50,
+          "offset": 0,
+          "severity": "all|low|medium|high|critical",
+          "component": "all|quantum|biometric|expiration|ai_defense",
+          "since": "2025-08-02T14:00:00Z"
+        },
+        "response": {
+          "events": [
+            {
+              "event_id": "evt_12345",
+              "timestamp": "2025-08-02T14:36:00Z",
+              "component": "quantum",
+              "severity": "medium",
+              "event_type": "attack_detected",
+              "message": "[QUANTUM] Simulated attack detected - strength reduced to 75%",
+              "metadata": {
+                "attack_type": "brute_force",
+                "key_id": "qk_7f4a9b2c8d6e1f3a",
+                "countermeasures": "active"
+              }
+            },
+            {
+              "event_id": "evt_12346",
+              "timestamp": "2025-08-02T14:35:00Z",
+              "component": "quantum",
+              "severity": "low",
+              "event_type": "key_rotation",
+              "message": "[QUANTUM] Key rotation completed successfully",
+              "metadata": {
+                "old_key_id": "qk_7f4a9b2c8d6e1f3a",
+                "new_key_id": "qk_9c1d4e7f2a5b8c3e"
+              }
+            }
+          ],
+          "total_events": 247,
+          "has_more": true,
+          "next_offset": 50
+        }
+      },
+      "/events/subscribe": {
+        "method": "POST",
+        "description": "Subscribe to real-time event stream",
+        "body": {
+          "webhook_url": "https://your-app.com/qsafp-events",
+          "events": ["quantum.*", "biometric.validation_failed", "ai_defense.attack_detected"],
+          "security_token": "your_webhook_secret"
+        },
+        "response": {
+          "subscription_id": "sub_abc123",
+          "status": "active",
+          "events_subscribed": 3,
+          "created_at": "2025-08-02T14:36:00Z"
+        }
+      }
+    },
+
+    "system_integration": {
+      "/system/health": {
+        "method": "GET",
+        "description": "Overall system health check",
+        "response": {
+          "status": "healthy",
+          "uptime_seconds": 86400,
+          "components": {
+            "quantum": {"status": "operational", "latency_ms": 15},
+            "biometric": {"status": "operational", "latency_ms": 250},
+            "expiration": {"status": "operational", "latency_ms": 5},
+            "ai_defense": {"status": "operational", "latency_ms": 45}
+          },
+          "overall_security_level": "high",
+          "last_maintenance": "2025-08-01T02:00:00Z"
+        }
+      },
+      "/system/config": {
+        "method": "GET",
+        "description": "Get system configuration (non-sensitive)",
+        "response": {
+          "version": "2.0.0",
+          "deployment": "simulation",
+          "features_enabled": ["quantum_simulation", "biometric_mockup", "ai_testing"],
+          "rate_limits": {
+            "requests_per_minute": 100,
+            "burst_limit": 10
+          },
+          "supported_integrations": ["REST_API", "GraphQL", "WebSocket", "Webhook"]
+        }
+      }
+    }
+  },
+
+  "error_responses": {
+    "authentication_failed": {
+      "status": 401,
+      "error": "authentication_failed",
+      "message": "Invalid or expired API key",
+      "code": "AUTH_001"
+    },
+    "rate_limit_exceeded": {
+      "status": 429,
+      "error": "rate_limit_exceeded", 
+      "message": "Too many requests - limit: 100/minute",
+      "retry_after": 60
+    },
+    "system_under_attack": {
+      "status": 503,
+      "error": "system_compromised",
+      "message": "System in lockdown mode due to detected threats",
+      "estimated_recovery": "2025-08-02T15:00:00Z"
+    }
+  },
+
+  "websocket_events": {
+    "endpoint": "wss://api.qsafp.dev/v2/events",
+    "events": {
+      "quantum.key_rotated": {
+        "new_key_id": "qk_...",
+        "timestamp": "ISO 8601"
+      },
+      "biometric.consensus_lost": {
+        "failed_nodes": ["node_id"],
+        "remaining_nodes": 1,
+        "timestamp": "ISO 8601"
+      },
+      "session.expiring_soon": {
+        "session_id": "sess_...",
+        "expires_in_seconds": 60,
+        "timestamp": "ISO 8601"
+      },
+      "ai_defense.attack_detected": {
+        "attack_type": "prompt_injection",
+        "severity": "high",
+        "blocked": true,
+        "timestamp": "ISO 8601"
+      }
+    }
+  },
+
+  "mock_implementation_notes": {
+    "quantum_keys": "Use cryptographically secure random hex strings, rotate every 5 minutes in demo",
+    "biometric_validation": "Simulate 2-5 second delays per node, random 90-98% success rates",
+    "time_enforcement": "Use actual countdown timers, store session state in memory/localStorage",
+    "ai_attacks": "Pre-defined attack patterns with randomized detection times 10-500ms",
+    "security_events": "Store in array/database, auto-generate timestamps, provide real-time updates"
+  },
+
+  "production_notes": {
+    "disclaimer": "This specification enables prototype development. Production systems require:",
+    "requirements": [
+      "Actual quantum hardware integration",
+      "Real biometric processing algorithms", 
+      "Cryptographic time-lock implementations",
+      "Advanced AI behavioral analysis",
+      "Distributed infrastructure deployment",
+      "Enterprise security compliance"
+    ],
+    "contact": "For production licensing and implementation details, contact: partnerships@qsafp.dev"
+  }
+}
