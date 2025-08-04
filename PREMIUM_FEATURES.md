@@ -40,6 +40,6 @@ If youre building QSAFP core logic into a paid product or service:
 
 ## Contact
 For commercial inquiries or licensing partnerships:  
-**licensing@getqsafp.org**
+**licensing@bwrci.org**
 
 We protect the commons by enabling responsible builders.
