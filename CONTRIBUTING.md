@@ -65,6 +65,22 @@ If you use an AI assistant (e.g. ChatGPT, Claude) to help shape contributions, w
 
 ---
 
+## 🔒 Branch Protection Policy
+
+To uphold the security and integrity of the open-core QSAFP repository, the `main` branch is protected by the following enforced rules:
+
+- ✅ All changes must go through **Pull Requests (PRs)**
+- ✅ Each PR requires at least **one approval**
+- 🚫 **Direct commits** to `main` are blocked (even by maintainers)
+- 🔒 **Force pushes and branch deletions** are disabled
+- 👁️ Bypass privileges are limited to `Repository Admins` and select `Maintainers`
+
+These policies ensure trusted contributions, maintain a clean history, and support auditability across critical QSAFP layers. They reflect our commitment to transparency, safety, and responsible stewardship of AI security tooling.
+
+> 🛡️ These protections help ensure the QSAFP protocol remains trustworthy, secure, and under meaningful human control — in line with our mission.
+
+For questions about governance or commit-level access, contact 📫 [qsafp@bwrci.org](mailto:qsafp@bwrci.org).
+
 ## 🔐 Security Disclosure
 
 If you discover a vulnerability, please **do not create a public issue.**  
