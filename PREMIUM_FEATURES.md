@@ -65,6 +65,8 @@ Forks and clones may exist, but only this repo receives:
 For authoritative builds, documentation, and licensing inquiries:  
 [https://github.com/QSAFP-Core/qsafp-open-core](https://github.com/QSAFP-Core/qsafp-open-core)
 
+🔄 Mirrors may exist for resilience, but this is the **canonical repository**.  
+For authoritative updates, always refer to this repo first.
 ---
 
 ## 📜 Changelog  
