@@ -49,6 +49,21 @@ We prefer **partnership models** (revenue-share, co-branded enterprise rollouts)
 ## 📩 Contact  
 For enterprise licensing & partnerships:  
 **licensing@bwrci.org**  
+## Contact
+For enterprise licensing & partnerships:  
+**licensing@bwrci.org**
+---
+
+## 🔒 Official QSAFP Repository
+This is the **official QSAFP Open-Core repository** maintained by BWRCI.  
+
+Forks and clones may exist, but only this repo receives:
+- ✅ Verified updates and performance benchmarks  
+- ✅ Integration with enterprise-grade safety modules  
+- ✅ Licensing alignment for sovereign and enterprise partners  
+
+For authoritative builds, documentation, and licensing inquiries:  
+[https://github.com/QSAFP-Core/qsafp-open-core](https://github.com/QSAFP-Core/qsafp-open-core)
 
 ---
 
