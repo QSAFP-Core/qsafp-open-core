@@ -2,6 +2,21 @@
 
 QSAFP (Quantum-Secured AI Fail-Safe Protocol) is a cryptographic enforcement system designed to ensure runtime accountability for autonomous AI systems. It offers a robust, sovereign-grade fallback that safeguards national and enterprise infrastructure against catastrophic AI misalignment or external compromise.
 
+# QSAFP Open-Core
+Quantum-Secured AI Fail-Safe Protocol (runtime accountability layer for the AI era).
+---
+
+## 🔒 Official QSAFP Repository
+This is the **official QSAFP Open-Core repository** maintained by BWRCI.  
+
+Forks and clones may exist, but only this repo receives:
+- ✅ Verified updates and performance benchmarks  
+- ✅ Integration with enterprise-grade safety modules  
+- ✅ Licensing alignment for sovereign and enterprise partners  
+
+For authoritative builds, documentation, and licensing inquiries:  
+[https://github.com/QSAFP-Core/qsafp-open-core](https://github.com/QSAFP-Core/qsafp-open-core)
+
 ## 🚀 Features
 - Quantum-secured policy logic
 - AI runtime fail-safe enforcement
