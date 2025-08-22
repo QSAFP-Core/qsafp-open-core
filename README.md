@@ -34,6 +34,8 @@ For authoritative builds, documentation, and licensing inquiries:
 ├── .env.example
 ├── README.md
 ```
+🔄 Mirrors may exist for resilience, but this is the **canonical repository**.  
+For authoritative updates, always refer to this repo first.
 
 ## 📘 Documentation
 - [Research Preprint (v2)](./QSAFP_Research_Gate_Paper-1-v2.pdf)
