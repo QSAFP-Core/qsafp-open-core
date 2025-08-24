@@ -1,3 +1,19 @@
+# 🚀 QSAFP v2.1 — Coming This Week
+
+We’re preparing the v2.1 open-core release.
+
+**What’s new for the community (non-premium):**
+- Model lifecycle auditing
+- Open A/B benchmarks (v2.0 vs v2.1)
+- Demo kill-switch stubs (safe to test)
+- BYO API scaffolding for integrations
+- Academic & nonprofit pilot readiness
+
+Enterprise features (quantum enforcement, federated trust/expiration chains, FinCEN-aligned tamper-proof logging, sovereign ID dashboards) remain premium.
+
+Stay tuned — upgrades will go live upon completion of installation.
+
+---
 # 🛡️ QSAFP – Quantum-Secured AI Fail-Safe Protocol
 
 QSAFP (Quantum-Secured AI Fail-Safe Protocol) is a cryptographic enforcement system designed to ensure runtime accountability for autonomous AI systems. It offers a robust, sovereign-grade fallback that safeguards national and enterprise infrastructure against catastrophic AI misalignment or external compromise.
