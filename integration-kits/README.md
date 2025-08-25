@@ -1,51 +1,31 @@
-# 🛡️ AEGES – AI-Enhanced Guardian for Economic Stability
+# QSAFP v2.0 – Stable Integration Kit
 
-**Quantum-resistant security for critical infrastructure & economic stability** —  
-aligned with **NIST Cybersecurity Framework 2.0** and compatible with **NIST PQC standards**.
+QSAFP v2.0 provides the **baseline implementation** of the Quantum-Secured AI Fail-Safe Protocol.
 
-AEGES is an open-core framework designed to protect high-value systems and economies against  
-advanced cyber threats, including those posed by quantum computing.
-
----
-
-## 🚀 Key Features
-- **Post-Quantum Cryptography (PQC)** – NIST-aligned algorithms for future-proof security.
-- **Critical Infrastructure Hardening** – Secure runtime enforcement and behavioral controls.
-- **Modular Integration Kits** – Plug-and-play AI & infrastructure protection modules.
-- **Open-Core Model** – Free core features for the community, with premium enterprise extensions.
-- **Compliance-Ready** – Built to align with NIST CSF 2.0, ISO 27001, and sector-specific regulations.
+- ⚡ ~800ms AI safety analysis
+- 🤝 ~1.8s multi-provider consensus
+- 🛡️ Proven stability in production
 
 ---
 
-## 📂 Repository Structure
-
-| Path                              | Description |
-|-----------------------------------|-------------|
-| `README.md`                       | **You are here** – project overview |
-| `ARCHITECTURE.md`                 | System architecture & design principles |
-| `CODE_OF_CONDUCT.md`              | Community guidelines |
-| `CONTRIBUTING.md`                 | Contribution process |
-| `SECURITY.md`                     | Vulnerability disclosure policy |
-| `PREMIUM_FEATURES.md`              | Enterprise-only extensions overview |
-| `integration-kits/`               | Folder for modular integrations |
-| `integration-kits/grok3/README.md`| Enhanced Grok3 AI integration kit |
-| `demo/` *(if applicable)*         | Demonstration and testing assets |
+## 📂 Files in this directory
+- `qsafp_api_spec.json` – API specification (v2.0 format)
+- `qsafp_mock_implementation.js` – Mock/demo logic
+- `qsafp_integration_examples.js` – Integration examples
+- `README.md` – This guide
 
 ---
 
-## 🔌 Integration Kits
-
-AEGES ships with specialized kits for integrating AI systems, APIs, and infrastructure protections.
-
-- [**Grok3 Integration Kit**](integration-kits/grok3/README.md) –  
-  Multi-provider AI consensus (xAI → OpenAI → Anthropic → Mock), sub-800ms response,  
-  security hardening, and full Docker/Kubernetes deployment support.
+## 🚀 Quickstart
+1. Clone this repo  
+2. Navigate to `/v2.0/`  
+3. Run the provided mock/demo scripts  
 
 ---
 
-## 🏁 Getting Started
+## 📚 Notes
+- v2.0 is **stable** and production-tested.  
+- v2.1 is available for **high-performance testing** (<400ms safety analysis).  
+- Both remain supported to enable **A/B testing** and compatibility checks.  
 
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/AEGES-OPEN-CORE/AEGES.git
-   cd AEGES
+See root [`README.md`](../../README.md) for migration details.
