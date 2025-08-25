@@ -92,6 +92,8 @@ async function runV21(prompt) {
 
     // v2.1 timings
     const v21Res = await runV21(prompt.text);
+if (!Number.isFinite(v21Res.safety))    v21Res.safety = 0;
+if (!Number.isFinite(v21Res.consensus)) v21Res.consensus = 0;
 
     // Normalize decision for correctness check
     const decRaw = String(v21Res.decision || "").toLowerCase();
