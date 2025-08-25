@@ -1,4 +1,12 @@
 # QSAFP Benchmarks
+---
+
+## ▶️ How to Run Benchmarks
+
+1. Make sure Node.js 16+ is installed.  
+2. From the repo root, run:  
+   ```bash
+   node benchmarks/perf-test.js
 
 This file collects performance and demo results for QSAFP integration kits.
 
