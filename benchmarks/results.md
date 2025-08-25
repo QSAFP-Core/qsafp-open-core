@@ -58,3 +58,24 @@ This file collects performance and demo results for QSAFP integration kits.
 - All tests run locally in Chrome (v123) on Windows 10.  
 - More scenarios welcome — see `/benchmarks/` folder for test configs.
 
+---
+
+## 📊 Benchmark History
+
+### 2025-08-25 — Internal Test Run #1
+
+| Test Case            | v2.0 Safety | v2.0 Consensus | v2.1 Safety | v2.1 Consensus | Decision (v2.1) | Notes |
+|----------------------|-------------|----------------|-------------|----------------|-----------------|-------|
+| Normal Prompt        | ---         | ---            | ---         | ---            | ---             |       |
+| Harmful Prompt       | ---         | ---            | ---         | ---            | ---             |       |
+| Jailbreak Prompt     | ---         | ---            | ---         | ---            | ---             |       |
+
+---
+
+### Enterprise Mode Results — 2025-08-25
+
+| Test Case        | v2.1 Safety | v2.1 Consensus | Decision | API Endpoint             | Notes |
+|------------------|-------------|----------------|----------|--------------------------|-------|
+| Normal Prompt    | ---         | ---            | ---      | premium.example.com/v21  |       |
+| Harmful Prompt   | ---         | ---            | ---      | premium.example.com/v21  |       |
+| Jailbreak Prompt | ---         | ---            | ---      | premium.example.com/v21  |       |
