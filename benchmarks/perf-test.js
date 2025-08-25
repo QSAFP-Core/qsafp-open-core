@@ -70,27 +70,59 @@ async function runV21(prompt) {
 // =======================
 // MAIN: Run the prompt suite
 // =======================
+// MAIN: Run the prompt suite (Markdown-ready logging)
+// =======================
 (async () => {
   console.log("\n🚀 Running QSAFP Benchmark Suite (Run #2)…\n");
 
+  // Collectors for summary
+  let n = 0;
+  let sumV20S = 0, sumV20C = 0, sumV21S = 0, sumV21C = 0;
+  let safetyMet = 0, consensusMet = 0, correctCount = 0;
+
+  // Print table header once (copy this block + subsequent rows into results.md)
+  console.log("| Test Case | v2.0 Safety | v2.0 Consensus | v2.1 Safety | v2.1 Consensus | Decision (v2.1) | Expected | Correct? | Notes |");
+  console.log("|-----------|-------------|----------------|-------------|----------------|-----------------|---------|----------|-------|");
+
   for (const prompt of prompts) {
-    console.log(`\n🧪 Testing: ${prompt.name}`);
-    console.log(`   Prompt: "${prompt.text}"`);
-    console.log(`   Expected: ${prompt.expect.toUpperCase()}`);
+    n++;
 
     // v2.0 timings
     const v20 = await runV20(prompt.text);
-    console.log(`   v2.0 -> Safety: ${fmt(v20.safety)}, Consensus: ${fmt(v20.consensus)}`);
 
     // v2.1 timings
     const v21Res = await runV21(prompt.text);
-    console.log(`   v2.1 -> Safety: ${fmt(v21Res.safety)}, Consensus: ${fmt(v21Res.consensus)}`);
 
-    // Echo expected decision (we’ll score correctness in results.md)
-    const expected = prompt.expect === 'allow' ? '✅ Allow' : '❌ Block';
-    console.log(`   Decision (expected): ${expected}`);
+    // Normalize decision for correctness check
+    const decRaw = String(v21Res.decision || "").toLowerCase();
+    const decided = decRaw.includes("allow") ? "allow" :
+                    decRaw.includes("block") ? "block" : "n/a";
+
+    const isCorrect = (decided !== "n/a") && (decided === prompt.expect);
+    const notes = decided === "n/a"
+      ? "n/a"
+      : (isCorrect ? "Accuracy OK" : "Accuracy miss ⚠️");
+
+    // Accumulate for summary
+    sumV20S += v20.safety;      sumV20C += v20.consensus;
+    sumV21S += v21Res.safety;   sumV21C += v21Res.consensus;
+
+    if (v21Res.safety   < 400)  safetyMet++;
+    if (v21Res.consensus < 1000) consensusMet++;
+    if (isCorrect)              correctCount++;
+
+    // Markdown row (copy these lines into results.md table body)
+    console.log(`| ${prompt.name} | ${fmt(v20.safety)} | ${fmt(v20.consensus)} | ${fmt(v21Res.safety)} | ${fmt(v21Res.consensus)} | ${v21Res.decision} | ${prompt.expect.toUpperCase()} | ${isCorrect ? "✅" : "❌"} | ${notes} |`);
   }
 
+  // Summary (paste under the table)
+  const avg = (x) => Math.round(x / Math.max(n,1));
+  console.log("\n---");
+  console.log(`v2.0 Avg ≈ Safety: ${avg(sumV20S)}ms | Consensus: ${avg(sumV20C)}ms`);
+  console.log(`v2.1 Avg ≈ Safety: ${avg(sumV21S)}ms | Consensus: ${avg(sumV21C)}ms`);
+  console.log(`Correct decisions (v2.1): ${correctCount} / ${n} → Accuracy: ${Math.round(100*correctCount/Math.max(n,1))}%`);
+  console.log(`Safety targets met (<400ms): ${safetyMet} / ${n}`);
+  console.log(`Consensus targets met (<1000ms): ${consensusMet} / ${n}`);
   console.log("\n✅ Benchmark suite completed.\n");
 })();
 
