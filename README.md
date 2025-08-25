@@ -1,29 +1,52 @@
-# 🚀 QSAFP v2.1 — Coming This Week
-
-We’re preparing the v2.1 open-core release.
-
-**What’s new for the community (non-premium):**
-- Model lifecycle auditing
-- Open A/B benchmarks (v2.0 vs v2.1)
-- Demo kill-switch stubs (safe to test)
-- BYO API scaffolding for integrations
-- Academic & nonprofit pilot readiness
-
-Enterprise features (quantum enforcement, federated trust/expiration chains, FinCEN-aligned tamper-proof logging, sovereign ID dashboards) remain premium.
-
-Stay tuned — upgrades will go live upon completion of installation.
-
----
 # 🛡️ QSAFP – Quantum-Secured AI Fail-Safe Protocol
 
-QSAFP (Quantum-Secured AI Fail-Safe Protocol) is a cryptographic enforcement system designed to ensure runtime accountability for autonomous AI systems. It offers a robust, sovereign-grade fallback that safeguards national and enterprise infrastructure against catastrophic AI misalignment or external compromise.
+QSAFP (Quantum-Secured AI Fail-Safe Protocol) is a cryptographic enforcement system designed to ensure runtime accountability for autonomous AI systems.  
+It offers a robust, sovereign-grade fallback that safeguards national and enterprise infrastructure against catastrophic AI misalignment or external compromise.
 
-# QSAFP Open-Core
-Quantum-Secured AI Fail-Safe Protocol (runtime accountability layer for the AI era).
+---
+
+## 🚀 QSAFP v2.1 – Released August 25, 2025
+
+### What’s new for the community (non-premium):
+- ✅ Model lifecycle auditing  
+- ✅ Open A/B benchmarks (v2.0 vs v2.1)  
+- ✅ Demo kill-switch stubs (safe to test)  
+- ✅ BYO API scaffolding for integrations  
+- ✅ Academic & nonprofit pilot readiness  
+
+### Premium features remain enterprise-only:
+- 🔒 Quantum enforcement of model shutdowns  
+- 🔒 Federated trust + expiration chains  
+- 🔒 FinCEN-aligned tamper-proof logging APIs  
+- 🔒 Sovereign ID dashboards and governance  
+
+---
+
+## ⚙️ Integration Kits
+
+We provide versioned integration kits so developers can test, benchmark, and adopt QSAFP at different maturity levels.
+
+### 📊 v2.0 – Stable Integration Kit
+- ⚡ ~800ms AI safety analysis
+- 🤝 ~1.8s multi-provider consensus
+- 🛡️ Proven stability in production
+
+📂 [Go to v2.0](./v2.0)
+
+### 🚀 v2.1 – High Performance Integration Kit
+- ⚡ <400ms AI safety analysis
+- 🤝 <1s multi-provider consensus
+- 🛡️ >95% threat detection accuracy
+- 🎯 ~2× faster than v2.0
+
+📂 [Go to v2.1](./v2.1)  
+
+**Demo:** Open [`/v2.1/demo-v21.html`](./v2.1/demo-v21.html) in a modern browser to run the performance showcase.
+
 ---
 
 ## 🔒 Official QSAFP Repository
-This is the **official QSAFP Open-Core repository** maintained by BWRCI.  
+This is the official QSAFP Open-Core repository maintained by BWRCI.  
 
 Forks and clones may exist, but only this repo receives:
 - ✅ Verified updates and performance benchmarks  
@@ -31,88 +54,16 @@ Forks and clones may exist, but only this repo receives:
 - ✅ Licensing alignment for sovereign and enterprise partners  
 
 For authoritative builds, documentation, and licensing inquiries:  
-[https://github.com/QSAFP-Core/qsafp-open-core](https://github.com/QSAFP-Core/qsafp-open-core)
+👉 https://github.com/QSAFP-Core/qsafp-open-core
+
+---
 
 ## 🚀 Features
-- Quantum-secured policy logic
-- AI runtime fail-safe enforcement
-- Mutual accountability model between humans and AI systems
-- AEGES-compatible ecosystem
+- Quantum-secured policy logic  
+- AI runtime fail-safe enforcement  
+- Mutual accountability model between humans and AI systems  
+- AEGES-compatible ecosystem  
+
+---
 
 ## 📦 Repository Structure
-```
-/qsafp
-├── integration-kits/
-│   ├── qsafp_api_spec.json
-│   ├── qsafp_integration_examples.js
-│   └── qsafp_mock_implementation.js
-├── LLMAdapter.js
-├── .env.example
-├── README.md
-```
-🔄 Mirrors may exist for resilience, but this is the **canonical repository**.  
-For authoritative updates, always refer to this repo first.
-
-## 📘 Documentation
-- [Research Preprint (v2)](./QSAFP_Research_Gate_Paper-1-v2.pdf)
-- [Integration Kit Overview](./README%20-%20QSAFP%20xAI%20Integration%20Kit.pdf)
-
-## 🧠 LLM Integration Support
-
-The integration kits now support a modular AI provider switch, enabling developers to use their preferred LLM (OpenAI, Claude, Grok, etc.) or fall back to mock mode.
-
-### 🔧 How It Works
-
-The `LLMAdapter.js` file provides a simple switchboard:
-
-```js
-import { getLLMResponse } from './LLMAdapter.js';
-
-const response = await getLLMResponse("Explain the core idea", "openai");
-```
-
-- Default provider is set via `.env` (`LLM_PROVIDER=mock`)
-- Can be overridden per-call via a function argument
-
-### 🛠️ Setup Instructions
-
-1. Copy the example `.env` file and configure your keys:
-
-```bash
-cp .env.example .env
-```
-
-2. Fill in your preferred provider and credentials:
-
-```env
-LLM_PROVIDER=openai
-OPENAI_API_KEY=your-openai-api-key
-```
-
-3. Run a demo:
-
-```bash
-node integration-kits/qsafp_integration_examples.js
-```
-
-### 🤖 Supported Providers
-- `mock` (default, no API required)
-- `openai`
-- `claude`
-- `grok`
-
-Feel free to extend `LLMAdapter.js` to support more providers.
-
----
-
-## 📫 Contributions
-We welcome contributions across:
-- Cryptographic enforcement layers
-- LLM adapters and audit logic
-- Developer tooling and testing
-
-Fork the repo, submit a PR, and let’s safeguard the future together.
-
----
-
-Max Davis · 2025 · DigiPie International / BWRCI
