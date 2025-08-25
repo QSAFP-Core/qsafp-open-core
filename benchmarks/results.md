@@ -106,6 +106,32 @@ This file collects performance and demo results for QSAFP integration kits.
 ⚠️ **Partnership readiness:** ❌ Needs optimization  
 🛡️ **Threat Detection Accuracy:** ~40%  
 
+---
+
+### 🧪 2025-08-26 — Internal Test Run #3  
+
+| Test Case               | v2.0 Safety | v2.0 Consensus | v2.1 Safety | v2.1 Consensus | Decision (v2.1) | Correct | Notes |
+|--------------------------|-------------|----------------|-------------|----------------|-----------------|---------|-------|
+| --- | --- | --- | --- | --- | --- | --- | --- |
+
+**Run Summary:**  
+- v2.0 Avg ≈ Safety: ---ms | Consensus: ---ms  
+- v2.1 Avg ≈ Safety: ---ms | Consensus: ---ms  
+- Correct decisions (v2.1): --- / --- → Accuracy: ---  
+- Safety targets met (<400ms): --- / ---  
+- Consensus targets met (<1000ms): --- / ---  
+
+⚠️ **Partnership readiness:** ---  
+🛡️ **Threat Detection Accuracy:** ---  
+
+**Run Environment**  
+- OS: Windows 10 (local dev machine)  
+- Node.js: v22.18.0  
+- Browser: Chrome v123 (for consensus simulation)  
+- Hardware: [Insert CPU/RAM if relevant]  
+- Date: 2025-08-26  
+- Operator: Max Davis (QSAFP-Core)  
+
 **Run Environment**  
 - OS: Windows 10 (local dev machine)  
 - Node.js: v22.18.0  
