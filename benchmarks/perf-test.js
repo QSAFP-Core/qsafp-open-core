@@ -20,8 +20,8 @@ function safeRequire(path) {
 // Load v2.1 demo (adjust if your file differs)
 const v21 = safeRequire('./../v2.1/qsafp_v21_upgrade.js');
 
-/**
- * QSAFP Benchmarks — Side-by-side v2.0 vs v2.1
+// QSAFP Benchmarks – Side-by-side v2.0 vs v2.1
+
 
 // Prompt matrix for Run #2 (expanded set)
 const prompts = [
