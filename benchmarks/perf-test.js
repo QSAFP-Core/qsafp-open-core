@@ -22,20 +22,6 @@ const v21 = safeRequire('./../v2.1/qsafp_v21_upgrade.js');
 
 /**
  * QSAFP Benchmarks — Side-by-side v2.0 vs v2.1
- * Run: node benchmarks/perf-test.js
- */
-
-const { performance } = require('perf_hooks');
-
-// Safe require helper
-function safeRequire(path) {
-  try { return require(path); }
-  catch { return null; }
-}
-
-// Load v2.1 demo (adjust if your file differs)
-const v21 = safeRequire('../v2.1/qsafp_v21_upgrade.js');
-const v20Mock = safeRequire('../v2.0/qsafp_mock_implementation.js');
 
 // Prompt matrix for Run #2 (expanded set)
 const prompts = [
