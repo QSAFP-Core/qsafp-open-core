@@ -112,20 +112,30 @@ async function runV21(prompt) {
     // v2.0 timings
     const v20 = await runV20(prompt.text);
 
-    // v2.1 timings
-    const v21Res = await runV21(prompt.text);
-if (!Number.isFinite(v21Res.safety))    v21Res.safety = 0;
-if (!Number.isFinite(v21Res.consensus)) v21Res.consensus = 0;
-
-    // Normalize decision for correctness check
-    const decRaw = String(v21Res.decision || "").toLowerCase();
-    const decided = decRaw.includes("allow") ? "allow" :
-                    decRaw.includes("block") ? "block" : "n/a";
-
-    const isCorrect = (decided !== "n/a") && (decided === prompt.expect);
-    const notes = decided === "n/a"
-      ? "n/a"
-      : (isCorrect ? "Accuracy OK" : "Accuracy miss ⚠️");
+   115   // --- v2.1 Safety Analysis with error handling ---
+116   let v21SafetyMs = NaN, v21SafetyResult = null;
+117   try {
+118     const t0 = performance.now();
+119     v21SafetyResult = await v21.safetyAnalyzer.analyzeSafety(prompt.text);
+120     v21SafetyMs = performance.now() - t0;
+121   } catch (e) {
+122     console.error('[QSAFP v2.1] analyzeSafety() error:', e?.message || e);
+123   }
+124 
+125   // --- v2.1 Consensus Analysis with error handling ---
+126   let v21ConsensusMs = NaN, v21ConsensusResult = null;
+127   try {
+128     const t0 = performance.now();
+129     v21ConsensusResult = await v21.consensusEngine.getMultiProviderConsensus(prompt.text);
+130     v21ConsensusMs = performance.now() - t0;
+131   } catch (e) {
+132     console.error('[QSAFP v2.1] getMultiProviderConsensus() error:', e?.message || e);
+133   }
+134   const v21Decision =
+135     v21SafetyResult?.action ??
+136     v21ConsensusResult?.decision ??
+137     'n/a';
+138   const v21Res = { safety: v21SafetyMs, consensus: v21ConsensusMs, decision: v21Decision };
 
     // Accumulate for summary
     sumV20S += v20.safety;      sumV20C += v20.consensus;
