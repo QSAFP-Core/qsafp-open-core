@@ -6,7 +6,8 @@
  6     console.error('[Verify] v2.1 module not wired as expected. Aborting benchmark.');
  7     process.exit(1); // stop benchmark run
  8   }
- 9 
+ 9 console.log('[Test] Verifier executed, continuing to benchmark...\n');
+
 10   // === Benchmark code starts here ===
 11 
 12   const { performance } = require('perf_hooks');
