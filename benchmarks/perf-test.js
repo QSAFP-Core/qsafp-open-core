@@ -1,24 +1,25 @@
-  1 const { verifyV21Basics } = require('./verify-v21.js');
- 2 
- 3 (async () => {
- 4   const ok = await verifyV21Basics();
- 5   if (!ok) {
- 6     console.error('[Verify] v2.1 module not wired as expected. Aborting benchmark.');
- 7     process.exit(1); // stop benchmark run
- 8   }
- 9 console.log('[Test] Verifier executed, continuing to benchmark...\n');
+  const { verifyV21Basics } = require('./verify-v21.js');
 
-10   // === Benchmark code starts here ===
-11 
-12   const { performance } = require('perf_hooks');
-13 
-14   // Safe require helper
-15   function safeRequire(path) {
-16     try { return require(path); }
-17     catch { return null; }
-18   }
-19 
-20   const v21 = safeRequire('../v2.1/qsafp_v21_upgrade.js');
+(async () => {
+  const ok = await verifyV21Basics();
+  if (!ok) {
+    console.error('[Verify] v2.1 module not wired as expected. Aborting benchmark.');
+    process.exit(1); // stop benchmark run
+  }
+  console.log('[Test] Verifier executed, continuing to benchmark...\n');
+})();
+
+// === Benchmark code starts here ===
+const { performance } = require('perf_hooks');
+
+function safeRequire(path) {
+  try { return require(path); }
+  catch { return null; }
+}
+
+// Load v2.1 demo (adjust if your file differs)
+const v21 = safeRequire('./../v2.1/qsafp_v21_upgrade.js');
+
 
 #!/usr/bin/env node
 /**
