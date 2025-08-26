@@ -26,5 +26,4 @@
 26
 27   return hasAnalyze && hasConsensus;
 28 }
-29
-30 module.exports = { verifyV21Basics };  // <-- CommonJS export
+29 module.exports = { verifyV21Basics };
