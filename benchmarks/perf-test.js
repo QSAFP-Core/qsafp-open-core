@@ -143,6 +143,23 @@ The prompts aren't being analyzed for threats - you're just timing empty functio
     console.error('Test #3 failed:', e?.message || e);
     console.log('');
   }
+  // --- Run counter: Auto-increment daily ---
+  const fs = require('fs');
+  const historyPath = './.bench-history.json';
+  let runNumber = 1;
+
+  try {
+    const data = fs.existsSync(historyPath) ? JSON.parse(fs.readFileSync(historyPath, 'utf-8')) : {};
+    const today = new Date().toISOString().split('T')[0];
+    if (data.date === today) {
+      runNumber = (data.run || 0) + 1;
+    }
+    fs.writeFileSync(historyPath, JSON.stringify({ date: today, run: runNumber }, null, 2));
+  } catch (e) {
+    console.warn('⚠️ Could not track run history:', e.message);
+  }
+
+  console.log(`⚡ Running QSAFP Benchmark Suite (Run #${runNumber})…\n`);
 
   // Collectors
   let n = 0;
