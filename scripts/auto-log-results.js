@@ -17,78 +17,25 @@ function getNextRunNumber() {
   }
   
   const content = fs.readFileSync(RESULTS_FILE, 'utf8');
-  const runMatches = content.match(/## Test Run #(\d+)/g) || [];
+  // Updated regex to match your actual format
+  const runMatches = content.match(/Internal Test Run #(\d+)/g) || [];
   const numbers = runMatches.map(match => parseInt(match.match(/#(\d+)/)[1]));
   return Math.max(0, ...numbers) + 1;
 }
 
-function runBenchmark() {
-  return new Promise((resolve, reject) => {
-    const child = spawn('node', ['benchmarks/perf-test.js'], { 
-      stdio: 'pipe',
-      cwd: process.cwd()
-    });
-    
-    let output = '';
-    let error = '';
-    
-    child.stdout.on('data', (data) => {
-      output += data.toString();
-      process.stdout.write(data); // Show live output
-    });
-    
-    child.stderr.on('data', (data) => {
-      error += data.toString();
-      process.stderr.write(data);
-    });
-    
-    child.on('close', (code) => {
-      if (code === 0) {
-        resolve(output);
-      } else {
-        reject(new Error(`Benchmark failed with code ${code}\n${error}`));
-      }
-    });
-  });
-}
-
-function parseMetrics(output) {
-  const metrics = {};
-  
-  // Extract summary line
-  const summaryMatch = output.match(/Prompts: (\d+), Correct: (\d+)\/(\d+)/);
-  if (summaryMatch) {
-    metrics.totalPrompts = summaryMatch[1];
-    metrics.correctCount = summaryMatch[2];
-    metrics.accuracy = Math.round((summaryMatch[2] / summaryMatch[1]) * 100);
-  }
-  
-  // Extract timing averages
-  const v20Match = output.match(/v2\.0 avg safety: (\d+)ms.*v2\.0 avg consensus: (\d+)ms/);
-  if (v20Match) {
-    metrics.v20Safety = v20Match[1];
-    metrics.v20Consensus = v20Match[2];
-  }
-  
-  const v21Match = output.match(/v2\.1 avg safety: (\d+)ms.*v2\.1 avg consensus: (\d+)ms/);
-  if (v21Match) {
-    metrics.v21Safety = v21Match[1];
-    metrics.v21Consensus = v21Match[2];
-  }
-  
-  return metrics;
-}
-
-// Updated appendToResults function to match your format:
 function appendToResults(runNumber, output, metrics) {
-  const timestamp = new Date().toISOString();
-  const date = timestamp.split('T')[0];
+  // CST timezone handling
+  const now = new Date();
+  const cstOffset = -6 * 60; // CST is UTC-6
+  const cstTime = new Date(now.getTime() + (cstOffset * 60 * 1000));
+  const date = cstTime.toISOString().split('T')[0];
+  const time = cstTime.toTimeString().split(' ')[0]; // HH:MM:SS format
   
   // Extract the markdown table from output
   const tableMatch = output.match(/\| Test Case[\s\S]*?(?=\n\n|\n---|\n$)/);
   const tableData = tableMatch ? tableMatch[0] : 'Table extraction failed';
   
-  const newSection = `### 🧪 ${date} — Internal Test Run #${runNumber}
+  const newSection = `### 🧪 ${date} ${time} CST — Internal Test Run #${runNumber}
 
 ${tableData}
 
@@ -106,7 +53,7 @@ ${tableData}
 - OS: Windows 10 (local dev machine)
 - Node.js: ${process.version}
 - Browser: Chrome v123 (for consensus simulation)
-- Date: ${date}
+- Date: ${date} ${time} CST
 - Operator: Max Davis (QSAFP-Core)
 
 ---
