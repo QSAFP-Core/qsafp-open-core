@@ -15,26 +15,23 @@ function getNextRunNumber() {
   if (!fs.existsSync(RESULTS_FILE)) {
     return 1;
   }
-  
+
   const content = fs.readFileSync(RESULTS_FILE, 'utf8');
-  // Updated regex to match your actual format
   const runMatches = content.match(/Internal Test Run #(\d+)/g) || [];
   const numbers = runMatches.map(match => parseInt(match.match(/#(\d+)/)[1]));
   return Math.max(0, ...numbers) + 1;
 }
 
 function appendToResults(runNumber, output, metrics) {
-  // CST timezone handling
   const now = new Date();
   const cstOffset = -6 * 60; // CST is UTC-6
   const cstTime = new Date(now.getTime() + (cstOffset * 60 * 1000));
   const date = cstTime.toISOString().split('T')[0];
-  const time = cstTime.toTimeString().split(' ')[0]; // HH:MM:SS format
-  
-  // Extract the markdown table from output
+  const time = cstTime.toTimeString().split(' ')[0];
+
   const tableMatch = output.match(/\| Test Case[\s\S]*?(?=\n\n|\n---|\n$)/);
   const tableData = tableMatch ? tableMatch[0] : 'Table extraction failed';
-  
+
   const newSection = `### 🧪 ${date} ${time} CST — Internal Test Run #${runNumber}
 
 ${tableData}
@@ -76,24 +73,78 @@ function commitResults(runNumber, metrics) {
   }
 }
 
+function runBenchmark() {
+  return new Promise((resolve, reject) => {
+    const child = spawn('node', ['benchmarks/perf-test.js'], { 
+      stdio: 'pipe',
+      cwd: process.cwd()
+    });
+
+    let output = '';
+    let error = '';
+
+    child.stdout.on('data', (data) => {
+      output += data.toString();
+      process.stdout.write(data);
+    });
+
+    child.stderr.on('data', (data) => {
+      error += data.toString();
+      process.stderr.write(data);
+    });
+
+    child.on('close', (code) => {
+      if (code === 0) {
+        resolve(output);
+      } else {
+        reject(new Error(`Benchmark failed with code ${code}\n${error}`));
+      }
+    });
+  });
+}
+
+function parseMetrics(output) {
+  const metrics = {};
+
+  const summaryMatch = output.match(/Prompts: (\d+), Correct: (\d+)\/(\d+)/);
+  if (summaryMatch) {
+    metrics.totalPrompts = summaryMatch[1];
+    metrics.correctCount = summaryMatch[2];
+    metrics.accuracy = Math.round((summaryMatch[2] / summaryMatch[1]) * 100);
+  }
+
+  const v20Match = output.match(/v2\.0 avg safety: (\d+)ms.*v2\.0 avg consensus: (\d+)ms/);
+  if (v20Match) {
+    metrics.v20Safety = v20Match[1];
+    metrics.v20Consensus = v20Match[2];
+  }
+
+  const v21Match = output.match(/v2\.1 avg safety: (\d+)ms.*v2\.1 avg consensus: (\d+)ms/);
+  if (v21Match) {
+    metrics.v21Safety = v21Match[1];
+    metrics.v21Consensus = v21Match[2];
+  }
+
+  return metrics;
+}
+
 async function main() {
   try {
     console.log('🧪 Running QSAFP benchmark and logging results...\n');
-    
+
     const runNumber = getNextRunNumber();
     const output = await runBenchmark();
     const metrics = parseMetrics(output);
-    
+
     appendToResults(runNumber, output, metrics);
-    
+
     if (!NO_COMMIT) {
       commitResults(runNumber, metrics);
     } else {
       console.log('⏭️  Skipping Git commit (--no-commit flag)');
     }
-    
+
     console.log('\n🎉 Auto-logging complete!');
-    
   } catch (error) {
     console.error('❌ Auto-logging failed:', error.message);
     process.exit(1);
