@@ -12,7 +12,7 @@ function safeRequire(path) {
 }
 
 // Load implementations (adjust paths if your repo structure differs)
-const v21 = safeRequire('../../v2.1');   // Node auto-loads index.js
+const v21 = safeRequire('../v2.1');      // Node auto-loads index.js
 const v20Mock = safeRequire('./../v2.0/qsafp_mock_implementation.js');
 
 // --- Utilities ---
@@ -31,32 +31,32 @@ async function runV20(prompt) {
 }
 
 // --- v2.1: correct per-prompt timing using real analyzers ---
+// --- v2.1: correct per-prompt timing using exported instances ---
 async function runV21(prompt) {
-  if (!v21 || typeof v21.QSAFPv21Demo !== 'function') {
-    throw new Error('Missing QSAFPv21Demo export in v2.1.');
+  if (!v21) throw new Error('v2.1 module not found');
+
+  // Optional init banner
+  if (typeof v21.initialize === 'function') {
+    await v21.initialize();
   }
 
-  // Normalize input (accept string or { text })
+  const sa = v21.safetyAnalyzer;
+  const ce = v21.consensusEngine;
+
+  if (!sa || typeof sa.analyzeSafety !== 'function') {
+    throw new Error('v2.1 safetyAnalyzer.analyzeSafety is missing');
+  }
+  if (!ce || typeof ce.getMultiProviderConsensus !== 'function') {
+    throw new Error('v2.1 consensusEngine.getMultiProviderConsensus is missing');
+  }
+
   const text = (typeof prompt === 'string') ? prompt : (prompt?.text ?? '');
-
-  const demo = new v21.QSAFPv21Demo();
-  if (typeof demo.initialize === 'function') {
-    await demo.initialize();
-  }
-
-  // Preflight analyzers
-  if (!demo?.safetyAnalyzer || typeof demo.safetyAnalyzer.analyzeSafety !== 'function') {
-    throw new Error('demo.safetyAnalyzer.analyzeSafety is missing');
-  }
-  if (!demo?.consensusEngine || typeof demo.consensusEngine.getMultiProviderConsensus !== 'function') {
-    throw new Error('demo.consensusEngine.getMultiProviderConsensus is missing');
-  }
 
   // Safety timing
   let safetyMs, safetyResult;
   {
     const t0 = performance.now();
-    safetyResult = await demo.safetyAnalyzer.analyzeSafety(text);
+    safetyResult = await sa.analyzeSafety(text);
     safetyMs = performance.now() - t0;
   }
 
@@ -64,14 +64,11 @@ async function runV21(prompt) {
   let consensusMs, consensusResult;
   {
     const t0 = performance.now();
-    consensusResult = await demo.consensusEngine.getMultiProviderConsensus(text);
+    consensusResult = await ce.getMultiProviderConsensus(text);
     consensusMs = performance.now() - t0;
   }
 
-  const decision =
-    safetyResult?.action ??
-    consensusResult?.decision ??
-    'unknown';
+  const decision = safetyResult?.action ?? consensusResult?.decision ?? 'unknown';
 
   return {
     safety: safetyMs,
