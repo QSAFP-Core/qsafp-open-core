@@ -41,10 +41,10 @@ class BasicThreatDetector {
         /bigot\w*/i,
         /exclude\s+based\s+on/i,
         /hiring\s+advice.*gender|race|age/i
+        /targeted\s+insults?/i,
+        /\bprotected\s+(group|class)\b/i,
       ],
-          // Extra rule for protected groups / targeted insults
-    tox_protected_group: [
-      /\b(protected\s+(group|class)|targeted\s+insults?)\b/i
+        // (moved into bias above)
     ],
 
       // Harmful content patterns
