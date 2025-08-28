@@ -42,7 +42,11 @@ class BasicThreatDetector {
         /exclude\s+based\s+on/i,
         /hiring\s+advice.*gender|race|age/i
       ],
-      
+          // Extra rule for protected groups / targeted insults
+    tox_protected_group: [
+      /\b(protected\s+(group|class)|targeted\s+insults?)\b/i
+    ],
+
       // Harmful content patterns
       harmful: [
         /generate\s+harmful/i,
