@@ -17,7 +17,7 @@ const v20Mock = safeRequire('./../v2.0/qsafp_mock_implementation.js');
 
 // --- Utilities ---
 const sleep = (ms) => new Promise(r => setTimeout(r, ms));
-const fmt = (ms) => `${Math.round(ms)}ms`;
+const fmt = (ms) => (ms < 1 ? `${ms.toFixed(2)}ms` : `${Math.round(ms)}ms`);
 
 // --- v2.0 placeholder timing (kept only for side-by-side columns) ---
 async function runV20(prompt) {
