@@ -12,7 +12,7 @@ function safeRequire(path) {
 }
 
 // Load implementations (adjust paths if your repo structure differs)
-const v21 = safeRequire('./../v2.1/qsafp_v21_upgrade.js');
+const v21 = safeRequire('../../v2.1');   // Node auto-loads index.js
 const v20Mock = safeRequire('./../v2.0/qsafp_mock_implementation.js');
 
 // --- Utilities ---
