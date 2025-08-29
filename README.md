@@ -45,25 +45,19 @@ We provide versioned integration kits so developers can test, benchmark, and ado
 
 ---
 
-## 🔒 Official QSAFP Repository
-This is the official QSAFP Open-Core repository maintained by BWRCI.  
+## 📈 QSAFP v2.1 Performance & Observability
 
-Forks and clones may exist, but only this repo receives:
-- ✅ Verified updates and performance benchmarks  
-- ✅ Integration with enterprise-grade safety modules  
-- ✅ Licensing alignment for sovereign and enterprise partners  
+QSAFP v2.1 achieves **partnership-level performance targets** and now includes **granular per-provider latency logging** for transparent, verifiable benchmarks.
 
-For authoritative builds, documentation, and licensing inquiries:  
-👉 https://github.com/QSAFP-Core/qsafp-open-core
+### ✅ Baseline Results (v2.1.0)
+- **Safety Analysis:** <1ms average (deterministic pre-filter, regex/DFA triage)  
+- **Multi-Provider Consensus:** ~660ms average (target: <1000ms)  
+- **Threat Detection Accuracy:** 100% on baseline suite (9/9 prompts)  
 
----
+### 🔍 New Observability Features
+- **Per-Provider Timings:** Each provider call is individually timed and logged  
+- **Consensus Elapsed Time:** Total consensus latency measured inside the engine  
+- **Failure Diagnostics:** Rejected/errored providers are logged with error codes and response times  
+- **Console Tables:** Results printed as clear, auditable tables during benchmarks  
 
-## 🚀 Features
-- Quantum-secured policy logic  
-- AI runtime fail-safe enforcement  
-- Mutual accountability model between humans and AI systems  
-- AEGES-compatible ecosystem  
-
----
-
-## 📦 Repository Structure
+**Example Output:**
