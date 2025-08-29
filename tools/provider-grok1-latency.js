@@ -7,7 +7,7 @@ async function runGrok1Timed(opts = {}) {
   const {
     apiKey = process.env.GROK_API_KEY,
     endpoint = process.env.GROK_API_URL || 'https://api.x.ai/v1/chat/completions',
-    model = 'grok-1',
+    model = process.env.GROK_MODEL || 'grok-2-latest',
     prompt,
     stream = true,
     max_tokens = 256,
@@ -80,9 +80,9 @@ async function runGrok1Timed(opts = {}) {
   const tokens_per_s = outputTokens && gen_duration_ms > 0 ? (outputTokens / (gen_duration_ms / 1000)) : 0;
 
   const log = {
-    ts: new Date().toISOString(),
-    provider: 'grok-1',
-    model,
+  ts: new Date().toISOString(),
+  provider: model,   // 👈 was 'grok-1', now dynamic
+  model,
     prompt_hash,
     http_connect_ms: Math.round(http_connect_ms),
     client_queue_ms: Math.round(client_queue_ms),
