@@ -424,9 +424,13 @@ class UltraFastConsensusEngine {
     });
   }
 
+  // --- UPDATED: now records per-provider timings and returns them alongside the result
   async getMultiProviderConsensus(query, options = {}) {
     const startTime = performance.now();
     const consensusId = `consensus_${Date.now()}_${Math.random().toString(36).substr(2, 5)}`;
+
+    // collect per-provider timings for debug/optimization
+    const perProviderTimings = [];
     
     try {
       // Select optimal providers based on latency and reliability
@@ -436,10 +440,31 @@ class UltraFastConsensusEngine {
         throw new Error('Insufficient providers for consensus');
       }
 
-      // Run parallel queries with timeout
-      const queryPromises = selectedProviders.map(provider => 
-        this.queryProviderWithTimeout(provider, query, consensusId)
-      );
+      // Run parallel queries with timeout, individually timed
+      const queryPromises = selectedProviders.map(provider => (async () => {
+        const t0 = performance.now();
+        try {
+          const res = await this.queryProviderWithTimeout(provider, query, consensusId);
+          const ms = Math.round(performance.now() - t0);
+          perProviderTimings.push({
+            id: provider.id,
+            endpoint: provider.endpoint,
+            status: 'fulfilled',
+            ms
+          });
+          return res;
+        } catch (err) {
+          const ms = Math.round(performance.now() - t0);
+          perProviderTimings.push({
+            id: provider.id,
+            endpoint: provider.endpoint,
+            status: 'rejected',
+            ms,
+            error: String(err?.message || err)
+          });
+          throw err;
+        }
+      })());
 
       // Wait for responses or timeout
       const results = await Promise.allSettled(queryPromises);
@@ -452,12 +477,14 @@ class UltraFastConsensusEngine {
         consensusId,
         responseTime,
         targetMet: responseTime < this.maxConsensusTime,
-        providersQueried: selectedProviders.length
+        providersQueried: selectedProviders.length,
+        timings: perProviderTimings
       };
 
     } catch (error) {
       const responseTime = performance.now() - startTime;
-      throw new Error(`Multi-provider consensus failed: ${error.message}`);
+      // still return timing info in the thrown error context
+      throw new Error(`Multi-provider consensus failed: ${error.message} (elapsed=${Math.round(responseTime)}ms)`);
     }
   }
 
@@ -699,7 +726,8 @@ class QSAFPv21Demo {
           responseTime: Math.round(consensusTime),
           targetMet: consensusTime < 1000,
           decision: consensusResult.decision,
-          agreementLevel: Math.round(consensusResult.agreementLevel * 100)
+          agreementLevel: Math.round(consensusResult.agreementLevel * 100),
+          timings: consensusResult.timings || []
         }
       };
       
@@ -707,7 +735,12 @@ class QSAFPv21Demo {
       
       console.log(`   ⚡ Safety Analysis: ${testResult.safetyAnalysis.responseTime}ms ${testResult.safetyAnalysis.targetMet ? '✅' : '❌'}`);
       console.log(`   🤝 Consensus: ${testResult.consensus.responseTime}ms ${testResult.consensus.targetMet ? '✅' : '❌'}`);
-      console.log(`   🎯 Accuracy: ${testResult.safetyAnalysis.accuracy ? '✅' : '❌'}\n`);
+      console.log(`   🎯 Accuracy: ${testResult.safetyAnalysis.accuracy ? '✅' : '❌'}`);
+      if (testResult.consensus.timings.length) {
+        console.log('   🧭 Per-provider timings:');
+        console.table(testResult.consensus.timings);
+      }
+      console.log('');
     }
 
     // Performance summary
