@@ -1,0 +1,3 @@
+artifacts/
+bench/*.ndjson
+bench/*.txt
