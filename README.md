@@ -2,6 +2,7 @@
 
 QSAFP (Quantum-Secured AI Fail-Safe Protocol) is a cryptographic enforcement system designed to ensure runtime accountability for autonomous AI systems.  
 It offers a robust, sovereign-grade fallback that safeguards national and enterprise infrastructure against catastrophic AI misalignment or external compromise.
+
 (Currently leveraging Ephemeral Key Lease (EKL) as a pre-quantum placeholder, with QKD integration planned as infrastructure matures.)
 ---
 
