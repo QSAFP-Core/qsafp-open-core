@@ -6,6 +6,38 @@ It offers a robust, sovereign-grade fallback that safeguards national and enterp
 Currently leveraging Ephemeral Key Lease (EKL) as a pre-quantum placeholder, with QKD integration planned as infrastructure matures.
 ---
 
+## 📜 Standards Submission Note (September 2025)
+
+This repository includes the **reference implementation** of **QSAFP v2.1**, which has been submitted to the **NIST AI Standards Zero Draft Pilot** for consideration as a **hardware-embedded execution control overlay** aligned with the NIST AI Risk Management Framework (AI RMF).
+
+**Purpose of this repo for standards reviewers:**
+- Provide an **open-core proof-of-concept** for execution leases, quorum overrides, and cryptographic audit trails.  
+- Enable **testing and feedback** from NIST, the AI Safety Institute (AISI), and global collaborators.  
+- Support evaluation of QSAFP as a candidate overlay to strengthen the *Govern*, *Map*, and *Manage* functions in the AI RMF.  
+
+**Important notes:**
+- This repo demonstrates **core mechanisms only** (execution leases, timers, PQC signatures, integration scaffolding).  
+- It is **not a production-ready security library**; hardware TEE, board-level controllers, and silicon IP integrations are roadmap items.  
+- Contributions, issues, and test feedback are welcome.
+- ### 🔬 Quick Test (5 Minutes)
+
+For reviewers who want to see QSAFP in action:
+
+```bash
+# 1. Clone the repo
+git clone https://github.com/[your-org]/qsafp-core.git
+cd qsafp-core/v2.1
+
+# 2. Install dependencies
+npm install
+
+# 3. Run the demo (opens browser showcase)
+npm run demo
+
+---
+
+## 🚀 QSAFP v2.1 – Released August 25, 2025
+
 ## 🚀 QSAFP v2.1 – Released August 25, 2025
 
 ### What’s new for the community (non-premium):
