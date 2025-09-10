@@ -35,9 +35,6 @@ npm install
 npm run demo
 
 ---
-
-## 🚀 QSAFP v2.1 – Released August 25, 2025
-
 ## 🚀 QSAFP v2.1 – Released August 25, 2025
 
 ### What’s new for the community (non-premium):
