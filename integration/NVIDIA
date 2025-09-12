@@ -1,1 +1,3 @@
+# NVIDIA Integration
+CUDA/NVML hooks for accelerated runtime safety analysis and GPU consensus scaling.
 
