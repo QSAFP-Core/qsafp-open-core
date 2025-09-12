@@ -9,16 +9,18 @@ CFLAGS := -O2 -Wall -Wextra -Icore/ekl -Icore/session -Icore/consensus
 HAL_STUB := hal/stub/qsafp_hal_stub.c
 DEMO_SRC := demo/demo_main.c
 
+.PHONY: all demo clean test-all
+
 all: demo
 
 $(BUILD):
-	mkdir $(BUILD)
+	mkdir -p $(BUILD)
 
 demo: $(BUILD)
 	gcc $(CFLAGS) $(CORE_SRCS) $(HAL_STUB) $(DEMO_SRC) -o $(BUILD)/qsafp_demo.exe
 
 test-all: demo
-	@echo "Running QSAFP full demo..."
+	@echo "Running QSAFP demo..."
 	./$(BUILD)/qsafp_demo.exe
 
 clean:
