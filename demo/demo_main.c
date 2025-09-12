@@ -1,9 +1,8 @@
 #include <stdio.h>
-
-void run_ekl();
-void run_session();
-void run_consensus();
-void run_biometric_quorum();
+#include "../core/ekl/ekl.h"
+#include "../core/session/session.h"
+#include "../core/consensus/consensus.h"
+#include "../hal/stub/qsafp_hal_stub.h"
 
 int main() {
     run_ekl();
@@ -12,4 +11,3 @@ int main() {
     run_biometric_quorum();
     return 0;
 }
-
