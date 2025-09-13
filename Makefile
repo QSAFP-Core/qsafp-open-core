@@ -6,7 +6,14 @@ CORE_SRCS := \
 
 CFLAGS := -O2 -Wall -Wextra -Icore/ekl -Icore/session -Icore/consensus
 
-HAL_STUB := hal/stub/qsafp_hal_stub.c
+# Default HAL (stub)
+HAL_SRC = hal/stub/qsafp_hal_stub.c
+
+# Partner overrides
+ifeq ($(PARTNER),xai)
+    HAL_SRC = hal/xai/qsafp_hal_xai.c
+endif
+
 DEMO_SRC := demo/demo_main.c
 
 .PHONY: all demo clean test-all
@@ -17,7 +24,7 @@ $(BUILD):
 	mkdir -p $(BUILD)
 
 demo: $(BUILD)
-	gcc $(CFLAGS) $(CORE_SRCS) $(HAL_STUB) $(DEMO_SRC) -o $(BUILD)/qsafp_demo.exe
+	gcc $(CFLAGS) $(CORE_SRCS) $(HAL_SRC) $(DEMO_SRC) -o $(BUILD)/qsafp_demo.exe
 
 test-all: demo
 	@echo "Running QSAFP demo..."
