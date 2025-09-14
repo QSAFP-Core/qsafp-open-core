@@ -1,6 +1,6 @@
-#include "consensus.h"
 #include <stdio.h>
 
-void run_consensus() {
-    printf("Consensus → ");
+// Stub for Session Management
+void session_init(void) {
+    printf("[SESSION] Session management initialized\n");
 }
