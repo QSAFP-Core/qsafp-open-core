@@ -1,18 +1,9 @@
 #include "qsafp_hal_xai.h"
-#include <string.h>
-#include <time.h>
+#include <stdio.h>
 
-bool xai_hal_init(void) {
-    return true; // xAI HAL init stub
+// Minimal stub for xAI integration
+
+int run_biometric_quorum() {
+    printf("[xAI HAL] Stub run_biometric_quorum() called.\n");
+    return 0; // success
 }
-
-bool xai_hal_entropy(uint8_t *buf, size_t len) {
-    // stub: fill with zeros (safe default, upgrade later)
-    memset(buf, 0, len);
-    return true;
-}
-
-uint64_t xai_hal_timestamp(void) {
-    return (uint64_t) time(NULL);
-}
-
