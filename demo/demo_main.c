@@ -1,3 +1,4 @@
+#include "hal/xai/qsafp_hal_xai.h"
 #include <stdio.h>
 #include "../core/ekl/ekl.h"
 #include "../core/session/session.h"
