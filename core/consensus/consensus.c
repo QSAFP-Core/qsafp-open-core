@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-// Stub for Session Management
-void session_init(void) {
-    printf("[SESSION] Session management initialized\n");
+// Stub for Multi-Party Consensus
+void consensus_init(void) {
+    printf("[CONSENSUS] Multi-party consensus initialized\n");
 }
