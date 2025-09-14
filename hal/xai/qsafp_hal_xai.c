@@ -5,3 +5,4 @@ void run_biometric_quorum(void) {
     printf("[xAI HAL] Biometric quorum stub invoked.\n");
 }
 
+
