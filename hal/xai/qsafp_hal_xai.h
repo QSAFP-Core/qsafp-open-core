@@ -1,9 +1,9 @@
 #ifndef QSAFP_HAL_XAI_H
 #define QSAFP_HAL_XAI_H
 
-// Declare the stub function for xAI integration
-int run_biometric_quorum();
+// Stub for partner-specific HAL integration
+void run_biometric_quorum(void);
 
-#endif
+#endif // QSAFP_HAL_XAI_H
 
 
