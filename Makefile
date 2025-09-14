@@ -1,11 +1,11 @@
-DEMO_SRC := demo/demo_main.c
 BUILD := build
+
 CORE_SRCS := \
     core/ekl/ekl.c \
     core/session/session.c \
     core/consensus/consensus.c
 
-CFLAGS := -O2 -Wall -Wextra -Icore/ekl -Icore/session -Icore/consensus
+CFLAGS := -O2 -Wall -Wextra -Icore/ekl -Icore/session -Icore/consensus -Ihal/xai -I.
 
 # Default HAL (stub)
 HAL_SRC := hal/stub/qsafp_hal_stub.c
@@ -14,6 +14,9 @@ HAL_SRC := hal/stub/qsafp_hal_stub.c
 ifeq ($(PARTNER),xai)
   HAL_SRC := hal/xai/qsafp_hal_xai.c
 endif
+
+# Demo main program
+DEMO_SRC := demo/demo_main.c
 
 .PHONY: all demo clean test-all
 
@@ -32,4 +35,5 @@ test-all: demo
 
 clean:
 	rm -rf $(BUILD)
+
 
