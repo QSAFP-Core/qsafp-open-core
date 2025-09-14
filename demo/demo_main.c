@@ -1,14 +1,13 @@
-#include "hal/xai/qsafp_hal_xai.h"
 #include <stdio.h>
-#include "../core/ekl/ekl.h"
-#include "../core/session/session.h"
-#include "../core/consensus/consensus.h"
-#include "../hal/stub/qsafp_hal_stub.h"
+#include "hal/xai/qsafp_hal_xai.h"
 
-int main() {
-    run_ekl();
-    run_session();
-    run_consensus();
+// QSAFP Demo entrypoint
+int main(void) {
+    printf("Running QSAFP demo...\n");
+
+    // Call into the partner-specific HAL (xAI stub for now)
     run_biometric_quorum();
+
+    printf("QSAFP demo finished.\n");
     return 0;
 }
