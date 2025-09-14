@@ -1,7 +1,6 @@
-#include "ekl.h"
 #include <stdio.h>
 
-void run_ekl() {
-    printf("EKL → ");
+// Stub for Ephemeral Key Lease (EKL)
+void ekl_init(void) {
+    printf("[EKL] Ephemeral Key Lease initialized\n");
 }
-
