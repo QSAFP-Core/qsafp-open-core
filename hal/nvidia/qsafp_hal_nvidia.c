@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "qsafp_hal_xai.h"
+#include "qsafp_hal_nvidia.h"
 
 // Explicit stub implementation for biometric quorum
 void run_biometric_quorum(void) {
