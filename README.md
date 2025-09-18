@@ -20,6 +20,20 @@ This repository includes the **reference implementation** of **QSAFP v2.1**, whi
 - This repo demonstrates **core mechanisms only** (execution leases, timers, PQC signatures, integration scaffolding).  
 - It is **not a production-ready security library**; hardware TEE, board-level controllers, and silicon IP integrations are roadmap items.  
 - Contributions, issues, and test feedback are welcome.
+- ---
+## 🔐 Multi-Threat Deterrence Suite (Execution Control)
+
+QSAFP extends beyond AI fail-safes to serve as a **deterrence layer against active threats**.  
+Its cryptographic execution control ensures that malicious behaviors — such as ransomware loops or privilege escalation — are terminated before damage propagates.
+
+### Core Capabilities
+- **Lease Enforcement:** Terminate unauthorized encryption or destructive loops.  
+- **Quorum Overrides:** Require multi-party approval before risky execution proceeds.  
+- **Kill-Switch Rollback:** Halt and reset compromised execution states.  
+- **Extensibility:** Easily extended to cover supply chain, exfiltration, or killware scenarios.  
+
+📂 Integration Kit: `integration-kits/ransomware_demo/` *(stubbed for safe testing)*
+
 - ### 🔬 Quick Test (5 Minutes)
 
 For reviewers who want to see QSAFP in action:
