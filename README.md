@@ -1,4 +1,5 @@
-# 🛡️ QSAFP – Quantum-Secured AI Fail-Safe Protocol
+# 🔐 QSAFP – Quantum-Secured AI Fail-Safe Protocol
+[![Commercial Use Requires License](https://img.shields.io/badge/Commercial%20Use-Requires%20License-red)](#-commercial-use-notice)
 
 QSAFP (Quantum-Secured AI Fail-Safe Protocol) is a cryptographic enforcement system designed to ensure runtime accountability for autonomous AI systems.  
 It offers a robust, sovereign-grade fallback that safeguards national and enterprise infrastructure against catastrophic AI misalignment or external compromise.
@@ -88,6 +89,25 @@ QSAFP v2.1 achieves **partnership-level performance targets** and now includes *
 - **Per-Provider Timings:** Each provider call is individually timed and logged  
 - **Consensus Elapsed Time:** Total consensus latency measured inside the engine  
 - **Failure Diagnostics:** Rejected/errored providers are logged with error codes and response times  
-- **Console Tables:** Results printed as clear, auditable tables during benchmarks  
+- **Console Tables:** Results printed as clear, auditable tables during benchmarks
+
+---
+
+## 🛡️ Commercial Use Notice
+
+QSAFP is released under an **open-core model**.  
+
+- ✅ **Permitted Uses (Open Source):**  
+  Free for research, educational, and non-commercial testing under the MIT License.  
+
+- 🚫 **Prohibited Without Authorization (Commercial):**  
+  Any commercial use of this software — including but not limited to:  
+  • Embedding QSAFP execution leases, quorum overrides, or cryptographic audit trails into commercial products or services  
+  • Offering derivative monitoring or test modules as part of a commercial product or managed service  
+  • Monetizing derivative works that rely on QSAFP core logic, specifications, or patent-covered methods  
+requires a **Premium Services License** from **DigiPie International PBC** or **BWRCI**.  
+
+**Effective Date:** October 1, 2025  
+
 
 **Example Output:**
