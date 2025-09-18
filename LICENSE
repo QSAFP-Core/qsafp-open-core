@@ -659,3 +659,22 @@ specific requirements.
 if any, to sign a "copyright disclaimer" for the program, if necessary.
 For more information on this, and how to apply and follow the GNU AGPL, see
 <https://www.gnu.org/licenses/>.
+---
+
+### Additional Terms: Derivative Uses Notice (Effective October 1, 2025)
+
+Pursuant to Section 7 of the GNU Affero General Public License v3.0, the following additional terms apply to this repository:
+
+- **Permitted Uses (Open Source):**
+  Research, educational, and non-commercial testing are allowed under the AGPL v3.0 terms.
+
+- **Prohibited Without Authorization (Commercial):**
+  Any commercial use of this software — including but not limited to:
+    • Integrating QSAFP lease/expiry enforcement, containment, rollback, or fail-safe features into commercial products or services,  
+    • Offering derivative test plans (e.g., ransomware, lateral movement, multi-threat, rollback scenarios) as part of a commercial product or managed service,  
+    • Monetizing derivative works that rely on QSAFP core logic, specifications, or patent-covered methods,  
+
+requires prior written authorization and a commercial license from **DigiPie International PBC** or **BWRCI**.
+
+All commercial rights are expressly reserved under the QSAFP **Premium Services Licensing Framework**. Unauthorized commercial exploitation may constitute infringement of patent-protected methods.
+

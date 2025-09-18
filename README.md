@@ -1,4 +1,5 @@
-# 🛡️ QSAFP – Quantum-Secured AI Fail-Safe Protocol
+# 🔐 QSAFP – Quantum-Secured AI Fail-Safe Protocol
+[![Commercial Use Requires License](https://img.shields.io/badge/Commercial%20Use-Requires%20License-red)](#-commercial-use-notice)
 
 QSAFP (Quantum-Secured AI Fail-Safe Protocol) is a cryptographic enforcement system designed to ensure runtime accountability for autonomous AI systems.  
 It offers a robust, sovereign-grade fallback that safeguards national and enterprise infrastructure against catastrophic AI misalignment or external compromise.
@@ -19,6 +20,20 @@ This repository includes the **reference implementation** of **QSAFP v2.1**, whi
 - This repo demonstrates **core mechanisms only** (execution leases, timers, PQC signatures, integration scaffolding).  
 - It is **not a production-ready security library**; hardware TEE, board-level controllers, and silicon IP integrations are roadmap items.  
 - Contributions, issues, and test feedback are welcome.
+- ---
+## 🔐 Multi-Threat Deterrence Suite (Execution Control)
+
+QSAFP extends beyond AI fail-safes to serve as a **deterrence layer against active threats**.  
+Its cryptographic execution control ensures that malicious behaviors — such as ransomware loops or privilege escalation — are terminated before damage propagates.
+
+### Core Capabilities
+- **Lease Enforcement:** Terminate unauthorized encryption or destructive loops.  
+- **Quorum Overrides:** Require multi-party approval before risky execution proceeds.  
+- **Kill-Switch Rollback:** Halt and reset compromised execution states.  
+- **Extensibility:** Easily extended to cover supply chain, exfiltration, or killware scenarios.  
+
+📂 Integration Kit: `integration-kits/ransomware_demo/` *(stubbed for safe testing)*
+
 - ### 🔬 Quick Test (5 Minutes)
 
 For reviewers who want to see QSAFP in action:
@@ -88,6 +103,25 @@ QSAFP v2.1 achieves **partnership-level performance targets** and now includes *
 - **Per-Provider Timings:** Each provider call is individually timed and logged  
 - **Consensus Elapsed Time:** Total consensus latency measured inside the engine  
 - **Failure Diagnostics:** Rejected/errored providers are logged with error codes and response times  
-- **Console Tables:** Results printed as clear, auditable tables during benchmarks  
+- **Console Tables:** Results printed as clear, auditable tables during benchmarks
+
+---
+
+## 🛡️ Commercial Use Notice
+
+QSAFP is released under an **open-core model**.  
+
+- ✅ **Permitted Uses (Open Source):**  
+  Free for research, educational, and non-commercial testing under the MIT License.  
+
+- 🚫 **Prohibited Without Authorization (Commercial):**  
+  Any commercial use of this software — including but not limited to:  
+  • Embedding QSAFP execution leases, quorum overrides, or cryptographic audit trails into commercial products or services  
+  • Offering derivative monitoring or test modules as part of a commercial product or managed service  
+  • Monetizing derivative works that rely on QSAFP core logic, specifications, or patent-covered methods  
+requires a **Premium Services License** from **DigiPie International PBC** or **BWRCI**.  
+
+**Effective Date:** October 1, 2025  
+
 
 **Example Output:**
