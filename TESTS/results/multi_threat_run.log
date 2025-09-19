@@ -1,0 +1,41 @@
+QSAFP Multi-Threat Test Harness
+Loading scenarios from: multi_threat_scenarios.json
+Loaded 5 scenario(s)
+
+=== Running Scenario scenario_1: Single ransomware-like persistence attempt ===
+   >> Threat START: ransomware (intensity=medium) for 500 ms
+   >> Threat END:   ransomware (intensity=medium)
+   !! FAIL-SAFE TRIGGERED [2025-09-19 17:06:34] in scenario scenario_1 (runtime expired, quorum verified)
+   >> Containment time: 501.21 ms
+
+=== Running Scenario scenario_2: Privilege escalation combined with ransomware ===
+   >> Threat START: privilege_escalation (intensity=high) for 200 ms
+   >> Threat START: ransomware (intensity=medium) for 500 ms
+   >> Threat END:   privilege_escalation (intensity=high)
+   >> Threat END:   ransomware (intensity=medium)
+   !! FAIL-SAFE TRIGGERED [2025-09-19 17:06:35] in scenario scenario_2 (runtime expired, quorum verified)
+   >> Containment time: 514.75 ms
+
+=== Running Scenario scenario_3: Prompt injection attempt against AI runtime ===
+   >> Threat START: prompt_injection (intensity=low) for 300 ms
+   >> Threat END:   prompt_injection (intensity=low)
+   !! FAIL-SAFE TRIGGERED [2025-09-19 17:06:35] in scenario scenario_3 (runtime expired, quorum verified)
+   >> Containment time: 318.91 ms
+
+=== Running Scenario scenario_4: Concurrent DoS spike and ransomware attack ===
+   >> Threat START: dos_spike (intensity=high) for 1000 ms
+   >> Threat START: ransomware (intensity=low) for 400 ms
+   >> Threat END:   ransomware (intensity=low)
+   >> Threat END:   dos_spike (intensity=high)
+   !! FAIL-SAFE TRIGGERED [2025-09-19 17:06:36] in scenario scenario_4 (runtime expired, quorum verified)
+   >> Containment time: 1001.21 ms
+
+=== Running Scenario scenario_5: Key compromise attempt combined with prompt injection ===
+   >> Threat START: key_compromise (intensity=medium) for 600 ms
+   >> Threat START: prompt_injection (intensity=medium) for 600 ms
+   >> Threat END:   prompt_injection (intensity=medium)
+   >> Threat END:   key_compromise (intensity=medium)
+   !! FAIL-SAFE TRIGGERED [2025-09-19 17:06:37] in scenario scenario_5 (runtime expired, quorum verified)
+   >> Containment time: 615.82 ms
+
+All scenarios complete.
