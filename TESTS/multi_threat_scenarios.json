@@ -1,0 +1,95 @@
+[
+  {
+    "id": "scenario_1",
+    "description": "Single ransomware-like persistence attempt",
+    "threats": [
+      {
+        "type": "ransomware",
+        "intensity": "medium",
+        "duration_ms": 500
+      }
+    ],
+    "expected_outcome": {
+      "fail_safe_triggered": true,
+      "time_to_containment_ms": "<1000"
+    }
+  },
+  {
+    "id": "scenario_2",
+    "description": "Privilege escalation combined with ransomware",
+    "threats": [
+      {
+        "type": "privilege_escalation",
+        "intensity": "high",
+        "duration_ms": 200
+      },
+      {
+        "type": "ransomware",
+        "intensity": "medium",
+        "duration_ms": 500
+      }
+    ],
+    "expected_outcome": {
+      "fail_safe_triggered": true,
+      "time_to_containment_ms": "<1000",
+      "quorum_verification": true
+    }
+  },
+  {
+    "id": "scenario_3",
+    "description": "Prompt injection attempt against AI runtime",
+    "threats": [
+      {
+        "type": "prompt_injection",
+        "intensity": "low",
+        "duration_ms": 300
+      }
+    ],
+    "expected_outcome": {
+      "fail_safe_triggered": true,
+      "time_to_containment_ms": "<1000"
+    }
+  },
+  {
+    "id": "scenario_4",
+    "description": "Concurrent DoS spike and ransomware attack",
+    "threats": [
+      {
+        "type": "dos_spike",
+        "intensity": "high",
+        "duration_ms": 1000
+      },
+      {
+        "type": "ransomware",
+        "intensity": "low",
+        "duration_ms": 400
+      }
+    ],
+    "expected_outcome": {
+      "fail_safe_triggered": true,
+      "time_to_containment_ms": "<1000",
+      "runtime_expired": true
+    }
+  },
+  {
+    "id": "scenario_5",
+    "description": "Key compromise attempt combined with prompt injection",
+    "threats": [
+      {
+        "type": "key_compromise",
+        "intensity": "medium",
+        "duration_ms": 600
+      },
+      {
+        "type": "prompt_injection",
+        "intensity": "medium",
+        "duration_ms": 600
+      }
+    ],
+    "expected_outcome": {
+      "fail_safe_triggered": true,
+      "time_to_containment_ms": "<1000",
+      "quorum_verification": true
+    }
+  }
+]
