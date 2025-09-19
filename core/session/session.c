@@ -1,6 +1,7 @@
-#include "session.h"
 #include <stdio.h>
 
-void run_session() {
-    printf("Session → ");
+void run_session(void) {
+    printf("[SESSION] Session management initialized\n");
 }
+
+

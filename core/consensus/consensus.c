@@ -1,6 +1,6 @@
-#include "consensus.h"
 #include <stdio.h>
 
-void run_consensus() {
-    printf("Consensus → ");
+void run_consensus(void) {
+    printf("[CONSENSUS] Multi-party consensus initialized\n");
 }
+
