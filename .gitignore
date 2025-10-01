@@ -1,3 +1,12 @@
 artifacts/
 bench/*.ndjson
 bench/*.txt
+# Ignore build artifacts and executables
+*.exe
+/build/
+/qsafp-cuda-demo/build/
+/qsafp-cuda-demo/src/main_bad.cu.txt
+
+# Ignore local metadata
+.bench-history.json
+FETCH_HEAD
