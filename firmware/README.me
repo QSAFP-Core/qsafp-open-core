@@ -1,0 +1,21 @@
+# QSAFP Firmware Stub
+
+This folder contains a minimal firmware stub implementation of QSAFP.  
+It is designed for simulation and integration with the validator emulator.
+
+---
+
+## 📂 File Structure
+---
+
+## ⚙️ Build Instructions
+
+### Prerequisites
+- GCC (MinGW-w64 on Windows, or build-essential on Linux)
+
+### Compile
+From repo root:
+
+```bash
+mkdir -p firmware/bin
+gcc -I firmware/include firmware/src/qsafp_firmware_stub.c -o firmware/bin/qsafp_firmware_stub

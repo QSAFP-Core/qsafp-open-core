@@ -1,0 +1,60 @@
+[33mcommit 5982df949afe6363220799efa75235faac58f0b1[m
+Author: max <maxbruce@bwrci.org>
+Date:   Mon Aug 25 12:04:45 2025 -0500
+
+    Rename integration-kits to v2.0 for parity with v2.1
+
+D	integration-kits/README.md
+D	integration-kits/grok3
+D	integration-kits/qsafp_api_spec.json
+D	integration-kits/qsafp_integration_examples.js
+D	integration-kits/qsafp_mock_implementation.js
+D	integration-kits/qsafp_xai_readme.md
+
+[33mcommit 05d8d8260dcd22818e54c94f2da068e61e508b7b[m
+Author: Max <maxbruce@bwrci.org>
+Date:   Mon Aug 25 11:43:10 2025 -0500
+
+    Update README.md
+
+M	integration-kits/README.md
+
+[33mcommit f3150340b384e7be4bc89992507a5f2186743153[m
+Author: Max <maxbruce@bwrci.org>
+Date:   Mon Aug 25 11:42:34 2025 -0500
+
+    Add files via upload
+    
+    added 2.0 readme
+
+A	integration-kits/README.md
+
+[33mcommit 22b45ced8293f64a6ab2cc43e725821599fad4fd[m
+Author: Max <maxbruce@bwrci.org>
+Date:   Mon Aug 4 11:08:41 2025 -0500
+
+    Add files via upload
+    
+    added implemention and readme
+
+A	integration-kits/qsafp_mock_implementation.js
+A	integration-kits/qsafp_xai_readme.md
+
+[33mcommit ff510fa393aa9f1b5ad595a1788eb6caac3e3ba2[m
+Author: Max <maxbruce@bwrci.org>
+Date:   Mon Aug 4 10:51:43 2025 -0500
+
+    Add files via upload
+
+A	integration-kits/qsafp_api_spec.json
+A	integration-kits/qsafp_integration_examples.js
+
+[33mcommit 768d076cdd373d64f6c502367c03f8278280b6bc[m
+Author: Max <maxbruce@bwrci.org>
+Date:   Mon Aug 4 10:49:12 2025 -0500
+
+    Create grok3
+    
+    added integration kit
+
+A	integration-kits/grok3
