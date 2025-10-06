@@ -106,16 +106,16 @@ This repository represents the **reference implementation** of QSAFP v2.1, which
 
 ### 🧪 Quick Start Demo  
 
-### 📜 Licensing & Use Notice
+🧾 Licensing & Use Notice
 
 This project is released under an **open-core model**.
 
 ✅ **Permitted (Open Source):**
-- Research, educational, and non-commercial testing under MIT License.
+- Research, educational, and non-commercial testing under **GNU Affero General Public License (AGPL-3.0)**.
 
 🚫 **Restricted (Commercial):**
 - Embedding QSAFP leases, quorum controls, or cryptographic audit trails in proprietary products  
-  without a **Premium License** from DigiPie International PBC or **BWRCI**.
+  without a **Premium License** from **DigiPie International PBC** or **BWRCI**.
 
 **Effective Date:** October 1, 2025
 ---
