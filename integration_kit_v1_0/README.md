@@ -1,3 +1,6 @@
+> **License Notice:**  
+> This integration guide is provided under the GNU AGPL-3.0 open-core license.  
+> Commercial or closed-source implementations require a Premium License from DigiPie International PBC / BWRCI.
 \# QSAFP Integration Kit v1.0
 
 
