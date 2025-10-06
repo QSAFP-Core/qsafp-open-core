@@ -14,22 +14,7 @@ from **DigiPie International PBC / BWRCI** — contact [licensing@bwrci.org](mai
 Maintained by **DigiPie International PBC / BWRCI**
 
 </div>
-
 ---
-
-# 🧩 QSAFP — Quantum-Secured AI Fail-Safe Protocol
-_Runtime sovereignty for autonomous AI systems — safety without slowdown._
-
-
-
-  <a href="https://github.com/QSAFP-Core/qsafp-open-core/blob/main/LICENSE">AGPL-3.0 License</a> • 
-  <a href="CHIP_DEMOS/qvn_inference_continuum/index.html">Chip-Level Demo</a> • 
-  v1.0 • Maintained by <strong>DigiPie International PBC / BWRCI</strong>
-</p>
-
----
-
-
 # 🧠 QSAFP — Quantum-Secured AI Fail-Safe Protocol  
 
 > **Runtime sovereignty for autonomous AI systems — safety without slowdown.**
