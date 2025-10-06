@@ -1,16 +1,25 @@
-<p align="center">
-  <img src="ASSETS/QSAFP Quantum-Secured FailSafe.jpg" width="120" alt="QSAFP Logo"><br><br>
-  <b>Quantum-Secured AI Fail-Safe Protocol (QSAFP)</b><br>
-  <em>Runtime sovereignty and validator-driven safety for the AI era</em><br>
- Quantum-Secured AI Fail-Safe Protocol (QSAFP)  
-_Runtime sovereignty and validator-driven safety for the AI era_  
+<div align="center">
+
+<img src="./ASSETS/QSAFP Quantum-Secured FailSafe.jpg" width="160" alt="QSAFP Logo"/>
+
+### 🧠 Quantum-Secured AI Fail-Safe Protocol (QSAFP)
+
+_Runtime sovereignty and validator-driven safety for the AI era._
 
 **License:** [AGPL-3.0](./LICENSE.txt) *(Open Core)*  
 🔒 Commercial integration and proprietary implementations require a **Premium License**  
-from **DigiPie International PBC / BWRCI** — contact [licensing@bwrci.org](mailto:licensing@bwrci.org)  
+from **DigiPie International PBC / BWRCI** — contact [licensing@bwrci.org](mailto:licensing@bwrci.org)
 
 [AGPL-3.0 License](./LICENSE.txt) • [Chip-Level Demo](./CHIP_DEMOS/qvn_inference_continuum/README.md) • v1.0  
 Maintained by **DigiPie International PBC / BWRCI**
+
+</div>
+
+---
+
+# 🧩 QSAFP — Quantum-Secured AI Fail-Safe Protocol
+_Runtime sovereignty for autonomous AI systems — safety without slowdown._
+
 
 
   <a href="https://github.com/QSAFP-Core/qsafp-open-core/blob/main/LICENSE">AGPL-3.0 License</a> • 
