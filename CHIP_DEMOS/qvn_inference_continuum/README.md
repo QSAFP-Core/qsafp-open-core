@@ -1,42 +1,45 @@
-# ⚙️ QSAFP — Chip Demos
+# ⚙️ QSAFP — QVN Inference Continuum
 
 **Quantum-Secured AI Fail-Safe Protocol**  
-*Demonstrating runtime safety and quorum-voted lifecycle control at the silicon layer.*
+*Demonstrating quorum-voted inference oversight at the silicon layer.*
 
 ---
 
 ## 📘 Overview
 
-<!-- 🔮 Cosmic Rendering Preview -->
-<p align="center" style="background: radial-gradient(circle at center, #0a0f1f 0%, #000510 100%); padding: 12px; border-radius: 12px;">
-  <a href="qvn_inference_continuum/index.html">
-    <img src="../ASSETS/Gif-QVN_Inference_Oversight_Continuum.gif"
-         alt="Validator Consensus: TRUE (6/6) — Inference layer live – outputs in motion."
-         width="760"
-         style="border: 2px solid rgba(0,255,255,0.25); border-radius: 8px; box-shadow: 0 0 12px rgba(0,255,255,0.3);">
-  </a>
-  <br>
-  <em>"Validator Consensus: TRUE (6/6)" – "Inference layer live – outputs in motion."</em>
-</p>
+![Validator Consensus: TRUE (6/6) — Inference layer live – outputs in motion.](../../ASSETS/Gif-QVN_Inference_Oversight_Continuum.gif)
 
-The **CHIP_DEMOS** directory showcases *browser-ready live simulations* of how QSAFP enforces AI safety directly at the hardware and firmware levels. Each demo is **self-contained** — no build steps, compilers, or dependencies required.
+*"Validator Consensus: TRUE (6/6)" – "Inference layer live – outputs in motion."*
+
+The **QVN Inference Continuum** demo showcases *browser-ready live simulations* of how QSAFP enforces AI safety directly at the inference layer through quorum-verified validator oversight. No build steps or compilers — just open in a browser and watch trust in motion.
 
 - 🔐 **Node Layer** — chip-enforced runtime safeguards and lease expiration logic
 - 🧠 **Inference Layer** — validator oversight via quorum consensus
-- 🌐 **Human Quorum** — gold-ring authorization for re-activation
+- 🌐 **Human Quorum** — gold-ring authorization for reactivation
 
 ---
 
-## 📂 Available Demos
+## 🧩 Live Telemetry Simulation
 
-### [QVN Inference Continuum](qvn_inference_continuum/)
+This demo reads `data.json` every few seconds to simulate validator consensus in real time. Edit `data.json` to observe changes in quorum, ratio, or inference status.
 
-Visual simulation of **dual-layer AI validation**.  
-Observe *lease expiration → validation → re-authorization* in real time, illustrating QSAFP's rhythmic, quorum-voted lifecycle enforcement.
+```json
+{
+  "validators": [
+    {"id": "v1", "status": "active", "latency_ms": 6.3},
+    {"id": "v2", "status": "active", "latency_ms": 6.5}
+  ],
+  "consensus": {
+    "quorum": "TRUE",
+    "ratio": "6/6",
+    "inference_layer": "live",
+    "outputs": "in motion"
+  }
+}
+```
 
-- ⚙️ **Core**: AI inference engine simulation
-- 🌀 **Orbiting Dots**: active validator nodes
-- 💫 **Gold Ring**: human quorum in consensus
+**Validator Consensus: TRUE (6/6)**  
+*Inference layer live — outputs in motion.*
 
 ---
 
@@ -60,13 +63,11 @@ While competitors rely on static firmware sign-offs or compliance checklists, QS
 
 ## 🪪 License
 
-These chip demos are released under the **MIT License** for non-commercial research, education, and evaluation. Embedding QSAFP lease logic, quorum controls, or cryptographic audit trails into commercial silicon or firmware requires a **Premium License** from:
+These demo files are released under the **MIT License** for non-commercial research, education, and evaluation. Embedding QSAFP lease logic, quorum controls, or cryptographic audit trails into commercial silicon or firmware requires a **Premium License** from:
 
 **DigiPie International PBC**  
 *in association with BWRCI (Better World Regulatory Coalition Inc.)*
 
 ---
 
-<p align="center">
-  🧩 <em>"While others verify, QSAFP expires — quorum-voted lifecycles etched in silicon."</em>
-</p>
+🧩 *"While others verify, QSAFP expires — quorum-voted lifecycles etched in silicon."*
