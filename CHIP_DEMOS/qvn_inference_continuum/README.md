@@ -6,7 +6,7 @@ Demonstrating runtime safety and quorum-voted lifecycle control at the silicon l
 <!-- 🔮 Cosmic Rendering Preview -->
 <p align="center">
   <a href="qvn_inference_continuum/index.html">
-    <img src="../ASSETS/Gif-QVN_Inference_Oversight_Continuum.gif" 
+    <img src="../ASSETS/Gif-QVN_Inference_Oversight_Continuum" 
          alt="Validator Consensus: TRUE (6/6) — Inference layer live – outputs in motion." 
          width="760">
   </a>
