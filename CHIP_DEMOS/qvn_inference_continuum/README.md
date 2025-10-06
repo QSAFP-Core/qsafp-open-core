@@ -61,12 +61,13 @@ While competitors rely on static firmware sign-offs or compliance checklists, QS
 
 ---
 
-## 🪪 License
-
-These demo files are released under the **MIT License** for non-commercial research, education, and evaluation. Embedding QSAFP lease logic, quorum controls, or cryptographic audit trails into commercial silicon or firmware requires a **Premium License** from:
-
-**DigiPie International PBC**  
-*in association with BWRCI (Better World Regulatory Coalition Inc.)*
+<h2>🪪 License</h2>
+<p>
+These demo files are governed under the <strong>GNU Affero General Public License (AGPL-3.0)</strong>,
+allowing free use for research, education, and evaluation.
+For commercial use or integration into proprietary silicon or firmware,
+a <strong>Premium License</strong> must be obtained from DigiPie International PBC / BWRCI.
+</p>
 
 ---
 
