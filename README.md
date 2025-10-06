@@ -15,7 +15,7 @@ Maintained by **DigiPie International PBC / BWRCI**
 
 </div>
 
-# 🧩 QSAFP — Quantum-Secured AI Fail-Safe Protocol
+---# 🧩 QSAFP — Quantum-Secured AI Fail-Safe Protocol
 _Runtime sovereignty for autonomous AI systems — safety without slowdown.
 
 ---
