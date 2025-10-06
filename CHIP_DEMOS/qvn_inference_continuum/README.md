@@ -1,3 +1,19 @@
+<hr>
+
+<h2 align="center">⚙️ Chip-Level Demonstration</h2>
+
+<p align="center">
+  <a href="CHIP_DEMOS/qvn_inference_continuum/index.html">
+    <img src="ASSETS/Gif-QVN%20Inference%20Oversight%20–%20The%20Continuum.gif"
+         alt="Validator Consensus: TRUE (6/6) — Inference layer live – outputs in motion."
+         width="760">
+  </a>
+  <br>
+  <em>QVN Inference Continuum – quorum-voted inference oversight in motion</em><br>
+  <a href="CHIP_DEMOS/README.md"><strong>→ Explore Chip Demos Folder</strong></a>
+</p>
+
+<hr>
 
 # ⚙️ QSAFP — Chip Demos
 
