@@ -127,14 +127,11 @@ Verifying biometric signature... trust rendered at runtime.
 
 
 
+
 ---
 
 <h2 align="center">🚀 Quick Start Demo</h2>
 
----
-
-
----  
 
 🧾 Licensing & Use Notice
 
