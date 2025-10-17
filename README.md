@@ -119,7 +119,7 @@ This project is released under an **open-core model**.
 ### 🌐 References & Community
 
 - **Official Docs:** [https://qsafp-core.github.io/qsafp-open-core/](https://qsafp-core.github.io/qsafp-open-core/)
-- **Integration Guide:** [`integration_guide.md`](integration_guide.md)
+- **Integration Guide:** [View →](integration_kit_v1_0/README.md)
 - **Validator Emulator:** [`demo/validator_emulator.py`](demo/validator_emulator.py)
 - **Build Notes:** [`integration_kit_v1_0/docs`](integration_kit_v1_0/docs/)
 
