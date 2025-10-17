@@ -37,7 +37,10 @@ _Quorum-voted inference oversight rendered live._
 
 <p align="center">
   <a href="CHIP_DEMOS/qvn_inference_continuum/index.html">
-    🔗 <strong>Explore the QVN Inference Continuum Demo →</strong>
+    <img src="ASSETS/✅QSAFP_Inference_in_Motion.gif"
+         alt="Validator Consensus: TRUE (6/6) — Inference layer live – outputs in motion."
+         width="760"
+         style="border-radius:8px; box-shadow:0 0 12px rgba(0,255,255,0.3);">
   </a>
 </p>
 
@@ -46,7 +49,6 @@ _Quorum-voted inference oversight rendered live._
     🌐 <strong>Launch Live QVN Demo (GitHub Pages) →</strong>
   </a>
 </p>
----
 ---
 ### 🔐 Protocol Overview  
 
