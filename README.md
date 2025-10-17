@@ -125,7 +125,11 @@ QVN — Quantum Validator Network in motion.
 Verifying biometric signature... trust rendered at runtime.
 </em></p>
 ---
-### 🧪 Quick Start Demo  
+---
+
+<h2 align="center">🚀 Quick Start Demo</h2>
+
+---  
 
 🧾 Licensing & Use Notice
 
