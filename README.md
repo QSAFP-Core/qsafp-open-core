@@ -37,15 +37,6 @@ _Quorum-voted inference oversight rendered live._
 
 <p align="center">
   <a href="CHIP_DEMOS/qvn_inference_continuum/index.html">
-    <img src="ASSETS/Gif-QVN_Inference_Oversight_Continuum.gif"
-         alt="Validator Consensus: TRUE (6/6) — Inference layer live – outputs in motion."
-         width="760"
-         style="border-radius:8px; box-shadow:0 0 12px rgba(0,255,255,0.3);">
-  </a>
-</p>
-
-<p align="center">
-  <a href="CHIP_DEMOS/qvn_inference_continuum/index.html">
     🔗 <strong>Explore the QVN Inference Continuum Demo →</strong>
   </a>
 </p>
