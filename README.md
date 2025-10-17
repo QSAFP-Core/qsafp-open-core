@@ -147,6 +147,13 @@ This project is released under an **open-core model**.
 **Effective Date:** October 1, 2025
 ---
 ### 🌐 References & Community
+---
+### 📣 Media Archive  
+<p align="center">
+  <b><a href="./XPosts_Highlights.md" style="text-decoration:none;">🧠 QSAFP / QVN — X Highlights →</a></b><br>
+  <sub>Infrastructure for trust, etched in silicon.  
+  A living record of milestones, partnerships, and proofs from <a href="https://x.com/bwrci_qsafp">@bwrci_qsafp</a> and <a href="https://bwrci.org">BWRCI.org</a>.</sub>
+</p>
 
 - **Official Docs:** [https://qsafp-core.github.io/qsafp-open-core/](https://qsafp-core.github.io/qsafp-open-core/)
 - **Integration Guide:** [View →](integration_kit_v1_0/README.md)
