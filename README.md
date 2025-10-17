@@ -45,14 +45,18 @@ _Quorum-voted inference oversight rendered live._
 </p>
 
 <p align="center">
-  <a href="CHIP_DEMOS/qvn_inference_continuum/README.html">
+  <a href="CHIP_DEMOS/qvn_inference_continuum/index.html">
     🔗 <strong>Explore the QVN Inference Continuum Demo →</strong>
   </a>
 </p>
 
+<p align="center">
+  <a href="https://qsafp-core.github.io/qsafp-open-core/CHIP_DEMOS/qvn_inference_continuum/">
+    🌐 <strong>Launch Live QVN Demo (GitHub Pages) →</strong>
+  </a>
+</p>
 ---
 ---
-
 ### 🔐 Protocol Overview  
 
 **QSAFP (Quantum-Secured AI Fail-Safe Protocol)** is a cryptographic enforcement layer designed to guarantee runtime accountability for autonomous AI.  
