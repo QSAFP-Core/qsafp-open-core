@@ -113,19 +113,18 @@ This repository represents the **reference implementation** of QSAFP v2.1, which
 <p align="center"><em>
 You will be able to interact wherever you see the check. ✅
 </em></p>
+<p align="center">
+  <img src="ASSETS/QVN_DEMO1-18mb.gif"
+       alt="QSAFP Validation Network Demo — Quantum Validator Network live simulation"
+       width="780"
+       style="border-radius:10px; box-shadow:0 0 16px rgba(0,180,255,0.4);">
+</p>
 
-**Demo Flow**
-1. Biometric general log-on  
-2. Renewal review assigned to random validator pool (first 3 responders win)  
-3. Biometric confirmation of winners to continue to secured logs  
-4. Responders individually review logs ✅ and vote to *Reauth* or *Deny* ✅  
-5. System records the vote, rewards the validator, states payment within 24 hrs  
-6. **Resolution is public — AI Node Reauthed or Denied**
-
-> Every AI Node is a contract. Every reauth a renewal of human trust.
-
+<p align="center"><em>
+QVN — Quantum Validator Network in motion.  
+Verifying biometric signature... trust rendered at runtime.
+</em></p>
 ---
-
 ### 🧪 Quick Start Demo  
 
 🧾 Licensing & Use Notice
