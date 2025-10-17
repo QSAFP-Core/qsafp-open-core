@@ -124,8 +124,8 @@ You will be able to interact wherever you see the check. ✅
 QVN — Quantum Validator Network in motion.  
 Verifying biometric signature... trust rendered at runtime.
 </em></p>
----
----
+
+
 
 <h2 align="center">🚀 Quick Start Demo</h2>
 
