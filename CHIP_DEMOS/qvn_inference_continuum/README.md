@@ -51,8 +51,11 @@ cd qsafp-open-core/CHIP_DEMOS/qvn_inference_continuum
 python3 -m http.server 8080
 ```
 
-Then open [http://localhost:8080](http://localhost:8080) and click **index.html** to launch the demo.
-
+<p align="center">
+  <a href="https://qsafp-core.github.io/qsafp-open-core/CHIP_DEMOS/qvn_inference_continuum/">
+    🌐 <strong>Launch Live QVN Demo (GitHub Pages) →</strong>
+  </a>
+</p>
 ---
 
 ## 🧠 Why It Matters
