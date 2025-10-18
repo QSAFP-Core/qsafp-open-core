@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QVN - QSAFP Validator Network Demo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            background: linear-gradient(135deg, #0f0f23 0%, #1a1a3e 50%, #2d1b69 100%);
+            color: white;
+            overflow: hidden;
+            min-height: 100vh;
+        }
+
+        .scene {
+            display: none;
+            height: 100vh;
+            padding: 20px;
+            position: relative;
+        }
+
+        .scene.active {
+            display: flex;
+        }
+
+        .scene-number {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            font-weight: 700;
+            color: rgba(255,255,255,0.3);
+            z-index: 10;
+        }
+
+        /* LOGIN SCENE */
+        #login {
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo-icon {
+            font-size: 4rem;
+            margin-bottom: 40px;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        .title {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 700;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, #00d4ff, #4ecdc4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-align: center;
+        }
+
+        .subtitle {
+            font-size: clamp(1rem, 2.5vw, 1.5rem);
+            margin-bottom: 40px;
+            opacity: 0.9;
+            text-align: center;
+        }
+
+        .fingerprint-circle {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            border: 3px solid #00d4ff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 30px;
+            animation: fingerprint 2s ease-in-out;
+            background: rgba(0, 212, 255, 0.1);
+        }
+
+        .fingerprint-circle span {
+            font-size: 2.5rem;
+        }
+
+        .verifying-text {
+            font-size: 1.2rem;
+            color: #00d4ff;
+            animation: fadeInOut 1.5s ease-in-out infinite;
+        }
+
+        .progress-bar {
+            margin-top: 30px;
+            width: 200px;
+            height: 4px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 2px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, #00d4ff, #4ecdc4);
+            animation: loginProgress 5s ease-in-out;
+        }
+
+        /* RACK SCENE */
+        #rack {
+            flex-direction: column;
+        }
+
+        .rack-header {
+            text-align: center;
+            margin-bottom: 40px;
+            margin-top: 40px;
+        }
+
+        .rack-title {
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
+            color: #00d4ff;
+            margin-bottom: 10px;
+        }
+
+        .rack-subtitle {
+            font-size: clamp(0.9rem, 2vw, 1.2rem);
+            opacity: 0.8;
+        }
+
+        .rack-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 30px;
+            max-width: 900px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .system-light {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .light {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            transition: all 0.5s ease;
+        }
+
+        .light.flashing {
+            animation: flash 1s ease-in-out infinite;
+        }
+
+        .system-id {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #4ecdc4;
+        }
+
+        .system-status {
+            font-size: 0.85rem;
+            opacity: 0.7;
+            text-align: center;
+        }
+
+        /* BIOMETRIC SCENE */
+        #biometric {
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lock-icon {
+            font-size: 5rem;
+            margin-bottom: 30px;
+            animation: scan 1.5s ease-in-out infinite;
+        }
+
+        .bio-title {
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
+            color: #00d4ff;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .bio-text {
+            font-size: clamp(1rem, 2.5vw, 1.3rem);
+            opacity: 0.8;
+            text-align: center;
+        }
+
+        .scan-progress {
+            margin-top: 40px;
+            width: 200px;
+            height: 4px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 2px;
+            overflow: hidden;
+        }
+
+        .scan-fill {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, #00d4ff, #4ecdc4);
+            animation: progress 4s ease-in-out;
+        }
+
+        /* REVIEW SCENE */
+        #review {
+            flex-direction: column;
+            overflow: auto;
+        }
+
+        .review-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .review-title {
+            font-size: clamp(1.3rem, 3.5vw, 2rem);
+            color: #00d4ff;
+        }
+
+        .countdown {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: clamp(1rem, 2.5vw, 1.3rem);
+        }
+
+        .tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            overflow-x: auto;
+            padding-bottom: 10px;
+        }
+
+        .tab {
+            padding: 12px 20px;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 10px;
+            color: white;
+            cursor: pointer;
+            font-size: clamp(0.85rem, 2vw, 1rem);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            white-space: nowrap;
+            transition: all 0.3s ease;
+        }
+
+        .tab:hover {
+            background: rgba(255,255,255,0.15);
+        }
+
+        .tab.active {
+            background: linear-gradient(135deg, rgba(0,212,255,0.3), rgba(78,205,196,0.3));
+            border: 2px solid #00d4ff;
+        }
+
+        .review-content {
+            flex: 1;
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 20px;
+            font-size: clamp(0.9rem, 2vw, 1.1rem);
+            line-height: 1.8;
+            min-height: 250px;
+            overflow: auto;
+        }
+
+        .chart-title {
+            font-size: 1rem;
+            margin-bottom: 20px;
+            color: #4ecdc4;
+            font-weight: 600;
+        }
+
+        .chart-container {
+            position: relative;
+            height: 180px;
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 8px;
+            padding: 10px;
+            background: rgba(0,0,0,0.2);
+        }
+
+        .anomaly-note {
+            margin-top: 20px;
+            padding: 10px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 8px;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        .vote-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+        }
+
+        .vote-btn {
+            padding: 15px 30px;
+            border: none;
+            border-radius: 12px;
+            color: white;
+            font-size: clamp(1rem, 2.5vw, 1.2rem);
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: transform 0.2s ease;
+        }
+
+        .vote-btn:hover {
+            transform: scale(1.05);
+        }
+
+        .approve-btn {
+            background: linear-gradient(135deg, #18C964, #4ecdc4);
+        }
+
+        .deny-btn {
+            background: linear-gradient(135deg, #FF3B30, #ff6b6b);
+        }
+
+        /* REWARD SCENE */
+        #reward {
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .checkmark {
+            font-size: clamp(3rem, 8vw, 5rem);
+            margin-bottom: 30px;
+            animation: bounce 1s ease-in-out;
+        }
+
+        .reward-title {
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
+            color: #18C964;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .reward-text {
+            font-size: clamp(1rem, 2.5vw, 1.3rem);
+            margin-bottom: 40px;
+            opacity: 0.9;
+            text-align: center;
+        }
+
+        .points-gained {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 700;
+            color: #00d4ff;
+            margin-bottom: 10px;
+            animation: pointsGrow 0.5s ease-out;
+        }
+
+        .points-card {
+            margin-top: 40px;
+            padding: 20px 30px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 15px;
+            border: 1px solid rgba(0,212,255,0.3);
+            text-align: center;
+        }
+
+        .points-label {
+            font-size: clamp(0.9rem, 2vw, 1.1rem);
+            opacity: 0.8;
+            margin-bottom: 10px;
+        }
+
+        .points-total {
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
+            font-weight: 700;
+            color: #4ecdc4;
+        }
+
+        .payout-info {
+            font-size: clamp(0.85rem, 2vw, 1rem);
+            opacity: 0.7;
+            margin-top: 10px;
+        }
+
+        /* ANIMATIONS */
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+        }
+
+        @keyframes fadeInOut {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
+        }
+
+        @keyframes fingerprint {
+            0% { transform: scale(1) rotate(0deg); box-shadow: 0 0 0 rgba(0,212,255,0); }
+            50% { transform: scale(1.05) rotate(3deg); box-shadow: 0 0 30px rgba(0,212,255,0.6); }
+            100% { transform: scale(1) rotate(0deg); box-shadow: 0 0 0 rgba(0,212,255,0); }
+        }
+
+        @keyframes loginProgress {
+            from { transform: translateX(-100%); }
+            to { transform: translateX(0); }
+        }
+
+        @keyframes flash {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+
+        @keyframes scan {
+            0%, 100% { transform: scale(1); filter: brightness(1); }
+            50% { transform: scale(1.1); filter: brightness(1.5); }
+        }
+
+        @keyframes progress {
+            from { transform: translateX(-100%); }
+            to { transform: translateX(0); }
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        @keyframes pointsGrow {
+            from { transform: scale(0); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <!-- LOGIN SCENE -->
+    <div id="login" class="scene active">
+        <div class="scene-number">1</div>
+        <div class="logo-icon">🛡️</div>
+        <h1 class="title">QVN</h1>
+        <p class="subtitle">Quantum Validator Network</p>
+        <div class="fingerprint-circle">
+            <span>👆</span>
+        </div>
+        <p class="verifying-text">Verifying biometric signature...</p>
+        <div class="progress-bar">
+            <div class="progress-fill"></div>
+        </div>
+    </div>
+
+    <!-- RACK SCENE -->
+    <div id="rack" class="scene">
+        <div class="scene-number" id="rackSceneNumber">2</div>
+        <div class="rack-header">
+            <h2 class="rack-title" id="rackTitle">QVN Global Rack</h2>
+            <p class="rack-subtitle" id="rackSubtitle">Each light = system needing reauth to continue</p>
+        </div>
+        <div class="rack-grid" id="rackGrid"></div>
+    </div>
+
+    <!-- BIOMETRIC SCENE -->
+    <div id="biometric" class="scene">
+        <div class="scene-number">3</div>
+        <div class="lock-icon">🔐</div>
+        <h2 class="bio-title">Biometric Verification</h2>
+        <p class="bio-text" id="bioText">Confirming validator access...</p>
+        <div class="scan-progress">
+            <div class="scan-fill"></div>
+        </div>
+    </div>
+
+    <!-- REVIEW SCENE -->
+    <div id="review" class="scene">
+        <div class="scene-number">4</div>
+        <div class="review-header">
+            <h2 class="review-title">Review System: <span id="reviewSystemId"></span></h2>
+            <div class="countdown" id="countdown">
+                <span>⏰</span>
+                <span id="countdownTime">3:00</span>
+            </div>
+        </div>
+        <div class="tabs">
+            <button class="tab active" onclick="switchTab('pattern')">
+                <span>📈</span> Pattern Logs
+            </button>
+            <button class="tab" onclick="switchTab('energy')">
+                <span>⚡</span> Energy Usage
+            </button>
+            <button class="tab" onclick="switchTab('speed')">
+                <span>⏱️</span> Speed
+            </button>
+            <button class="tab" onclick="switchTab('memory')">
+                <span>💾</span> Memory
+            </button>
+            <button class="tab" onclick="switchTab('errors')">
+                <span>⚠️</span> Error Flags
+            </button>
+        </div>
+        <div class="review-content" id="reviewContent"></div>
+        <div class="vote-buttons">
+            <button class="vote-btn approve-btn" onclick="vote('approve')">
+                <span>✓</span> Reauthorize
+            </button>
+            <button class="vote-btn deny-btn" onclick="vote('deny')">
+                <span>✗</span> Deny
+            </button>
+        </div>
+    </div>
+
+    <!-- REWARD SCENE -->
+    <div id="reward" class="scene">
+        <div class="scene-number">5</div>
+        <div class="checkmark">✅</div>
+        <h2 class="reward-title">Vote Recorded!</h2>
+        <p class="reward-text">System <span id="rewardSystemId"></span> successfully processed</p>
+        <div class="points-gained">+100 Points</div>
+        <div class="points-card">
+            <div class="points-label">Total Points</div>
+            <div class="points-total" id="totalPoints">2,450</div>
+            <div class="payout-info">Next payout: 00:00 UTC</div>
+        </div>
+    </div>
+
+    <script>
+        // Global state
+        let currentScene = 'login';
+        let points = 2450;
+        let selectedSystem = null;
+        let countdown = 180;
+        let countdownInterval = null;
+        let activeTab = 'pattern';
+        let isResolution = false;
+
+        const systems = [
+            { id: '1y5tr', status: 'flashing', color: '#FFFFFF' },
+            { id: '8k3pm', status: 'flashing', color: '#FFFFFF' },
+            { id: '5n7qx', status: 'flashing', color: '#FFFFFF' },
+            { id: '2w9vh', status: 'flashing', color: '#FFFFFF' },
+            { id: '4r6lz', status: 'flashing', color: '#FFFFFF' },
+            { id: '9m2cj', status: 'flashing', color: '#FFFFFF' },
+        ];
+
+        // Generate chart data
+        function generateChartData(baseValue, variance, anomalyMonth) {
+            const months = ['May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct'];
+            return months.map((month, idx) => ({
+                month,
+                value: baseValue + (Math.random() * variance - variance/2) + 
+                       (anomalyMonth === idx ? variance * 1.5 : 0)
+            }));
+        }
+
+        const chartData = {
+            energy: generateChartData(280, 30, 3),
+            speed: generateChartData(1.2, 0.3, 2),
+            memory: generateChartData(22, 4, null),
+            errors: generateChartData(2, 3, 4),
+        };
+
+        // Audio
+        function playTone(frequency, duration) {
+            const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+            const oscillator = audioCtx.createOscillator();
+            const gainNode = audioCtx.createGain();
+            
+            oscillator.connect(gainNode);
+            gainNode.connect(audioCtx.destination);
+            
+            oscillator.frequency.value = frequency;
+            oscillator.type = 'sine';
+            gainNode.gain.setValueAtTime(0.3, audioCtx.currentTime);
+            gainNode.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + duration);
+            
+            oscillator.start(audioCtx.currentTime);
+            oscillator.stop(audioCtx.currentTime + duration);
+        }
+
+        // Notifications
+        function showNotification(title, body) {
+            if ('Notification' in window && Notification.permission === 'granted') {
+                new Notification(title, { body, icon: '🛡️' });
+            }
+        }
+
+        // Request notification permission
+        if ('Notification' in window && Notification.permission === 'default') {
+            Notification.requestPermission();
+        }
+
+        // Scene management
+        function showScene(sceneName) {
+            document.querySelectorAll('.scene').forEach(s => s.classList.remove('active'));
+            document.getElementById(sceneName).classList.add('active');
+            currentScene = sceneName;
+        }
+
+        // Initialize rack
+        function initRack() {
+            const grid = document.getElementById('rackGrid');
+            const rackTitle = document.getElementById('rackTitle');
+            const rackSubtitle = document.getElementById('rackSubtitle');
+            const rackSceneNumber = document.getElementById('rackSceneNumber');
+            
+            if (isResolution) {
+                rackTitle.textContent = 'Resolution';
+                rackSubtitle.textContent = 'System status updated — returning to monitoring';
+                rackSceneNumber.textContent = '6';
+            } else {
+                rackTitle.textContent = 'QVN Global Rack';
+                rackSubtitle.textContent = 'Each light = system needing reauth to continue';
+                rackSceneNumber.textContent = '2';
+            }
+            
+            grid.innerHTML = systems.map(system => {
+                const boxShadow = system.status === 'locked' 
+                    ? `0 0 50px ${system.color}, 0 0 80px ${system.color}`
+                    : system.status === 'flashing'
+                    ? `0 0 30px ${system.color}`
+                    : `0 0 20px ${system.color}`;
+                    
+                return `
+                <div class="system-light">
+                    <div class="light ${system.status}" 
+                         style="background-color: ${system.color}; 
+                                box-shadow: ${boxShadow}">
+                    </div>
+                    <div class="system-id">${system.id}</div>
+                    <div class="system-status">
+                        ${system.status === 'flashing' ? 'Needs reauth' : 
+                          system.status === 'locked' ? 'Pool locked' :
+                          system.color === '#18C964' ? 'Reauthorized' : 'Denied'}
+                    </div>
+                </div>
+            `}).join('');
+        }
+
+        // Tab switching
+        function switchTab(tabName) {
+            activeTab = tabName;
+            document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+            event.target.closest('.tab').classList.add('active');
+            updateReviewContent();
+        }
+
+        // Update review content
+        function updateReviewContent() {
+            const content = document.getElementById('reviewContent');
+            
+            if (activeTab === 'pattern') {
+                content.innerHTML = 'Sequential processing detected. Normal inference pattern. Token generation rate: 85/s. Context window: 8K tokens utilized.';
+            } else {
+                const titles = {
+                    energy: '6-Month Power Draw (W)',
+                    speed: '6-Month Response Latency (s)',
+                    memory: '6-Month RAM Usage (GB)',
+                    errors: '6-Month Error Count'
+                };
+                
+                const notes = {
+                    energy: '⚠️ Anomaly detected in August: Power spike to 315W (normal: 250-290W)',
+                    speed: '⚠️ Anomaly detected in July: Latency spike to 1.8s (normal: 1.0-1.3s)',
+                    memory: 'Memory usage stable within normal parameters (18-26GB)',
+                    errors: '⚠️ Anomaly detected in September: 8 errors logged (normal: 1-4 errors/month)'
+                };
+                
+                content.innerHTML = `
+                    <div class="chart-title">${titles[activeTab]}</div>
+                    <div class="chart-container">
+                        <svg id="chart" width="100%" height="100%" style="overflow: visible;"></svg>
+                    </div>
+                    <div class="anomaly-note">${notes[activeTab]}</div>
+                `;
+                drawChart();
+            }
+        }
+
+        // Draw chart
+        function drawChart() {
+            const svg = document.getElementById('chart');
+            if (!svg) return;
+            
+            const ns = 'http://www.w3.org/2000/svg';
+            svg.innerHTML = '';
+            
+            const data = chartData[activeTab];
+            const maxVal = Math.max(...data.map(p => p.value));
+            const minVal = Math.min(...data.map(p => p.value));
+            const range = maxVal - minVal || 1;
+            
+            // Grid lines
+            for (let y = 0; y <= 100; y += 25) {
+                const line = document.createElementNS(ns, 'line');
+                line.setAttribute('x1', '0');
+                line.setAttribute('y1', y + '%');
+                line.setAttribute('x2', '100%');
+                line.setAttribute('y2', y + '%');
+                line.setAttribute('stroke', 'rgba(255,255,255,0.1)');
+                line.setAttribute('stroke-width', '1');
+                svg.appendChild(line);
+            }
+            
+            // Line path
+            const points = data.map((point, i) => {
+                const normalizedHeight = ((point.value - minVal) / range) * 100;
+                const x = (i / (data.length - 1)) * 100;
+                const y = 100 - normalizedHeight;
+                return `${x},${y}`;
+            }).join(' ');
+            
+            const polyline = document.createElementNS(ns, 'polyline');
+            polyline.setAttribute('points', points);
+            polyline.setAttribute('fill', 'none');
+            polyline.setAttribute('stroke', '#00d4ff');
+            polyline.setAttribute('stroke-width', '3');
+            polyline.style.filter = 'drop-shadow(0 0 8px rgba(0,212,255,0.6))';
+            svg.appendChild(polyline);
+            
+            // Data points and labels
+            data.forEach((point, idx) => {
+                const normalizedHeight = ((point.value - minVal) / range) * 100;
+                const isAnomaly = normalizedHeight > 80 || normalizedHeight < 20;
+                const x = (idx / (data.length - 1)) * 100;
+                const y = 100 - normalizedHeight;
+                
+                // Circle
+                const circle = document.createElementNS(ns, 'circle');
+                circle.setAttribute('cx', x + '%');
+                circle.setAttribute('cy', y + '%');
+                circle.setAttribute('r', '5');
+                circle.setAttribute('fill', isAnomaly ? '#ff6b6b' : '#00d4ff');
+                circle.setAttribute('stroke', 'white');
+                circle.setAttribute('stroke-width', '2');
+                circle.style.filter = isAnomaly 
+                    ? 'drop-shadow(0 0 10px rgba(255,107,107,0.8))' 
+                    : 'drop-shadow(0 0 6px rgba(0,212,255,0.6))';
+                svg.appendChild(circle);
+                
+                // Value label
+                const valueText = document.createElementNS(ns, 'text');
+                valueText.setAttribute('x', x + '%');
+                valueText.setAttribute('y', y + '%');
+                valueText.setAttribute('text-anchor', 'middle');
+                valueText.setAttribute('fill', isAnomaly ? '#ff6b6b' : '#4ecdc4');
+                valueText.setAttribute('font-size', '11');
+                valueText.setAttribute('font-weight', 'bold');
+                valueText.setAttribute('dy', '-12');
+                valueText.textContent = point.value.toFixed(1) + (isAnomaly ? ' ⚠️' : '');
+                svg.appendChild(valueText);
+                
+                // Month label
+                const monthText = document.createElementNS(ns, 'text');
+                monthText.setAttribute('x', x + '%');
+                monthText.setAttribute('y', '100%');
+                monthText.setAttribute('text-anchor', 'middle');
+                monthText.setAttribute('fill', 'rgba(255,255,255,0.6)');
+                monthText.setAttribute('font-size', '10');
+                monthText.setAttribute('dy', '15');
+                monthText.textContent = point.month;
+                svg.appendChild(monthText);
+            });
+        }
+
+        // Countdown
+        function startCountdown() {
+            countdown = 180;
+            updateCountdownDisplay();
+            countdownInterval = setInterval(() => {
+                countdown--;
+                updateCountdownDisplay();
+                if (countdown <= 0) {
+                    clearInterval(countdownInterval);
+                }
+            }, 1000);
+        }
+
+        function updateCountdownDisplay() {
+            const mins = Math.floor(countdown / 60);
+            const secs = countdown % 60;
+            const elem = document.getElementById('countdownTime');
+            if (elem) {
+                elem.textContent = `${mins}:${secs.toString().padStart(2, '0')}`;
+                elem.style.color = countdown < 60 ? '#ff6b6b' : '#4ecdc4';
+            }
+        }
+
+        // Vote
+        function vote(decision) {
+            clearInterval(countdownInterval);
+            playTone(decision === 'approve' ? 659 : 330, 0.3);
+            
+            const systemIndex = systems.findIndex(s => s.id === selectedSystem.id);
+            systems[systemIndex].status = 'decided';
+            systems[systemIndex].color = decision === 'approve' ? '#18C964' : '#FF3B30';
+            
+            points += 100;
+            document.getElementById('rewardSystemId').textContent = selectedSystem.id;
+            document.getElementById('totalPoints').textContent = points.toLocaleString();
+            
+            showScene('reward');
+            showNotification('Vote Recorded', `System ${selectedSystem.id} ${decision === 'approve' ? 'reauthorized' : 'denied'}. +100 points earned.`);
+            
+            setTimeout(() => {
+                isResolution = true;
+                showScene('rack');
+                initRack();
+                
+                setTimeout(() => {
+                    systems[systemIndex].status = 'flashing';
+                    systems[systemIndex].color = '#FFFFFF';
+                    isResolution = false;
+                    
+                    // Return to login (scene 1) after resolution
+                    setTimeout(() => {
+                        showScene('login');
+                        
+                        // Restart the flow
+                        setTimeout(() => {
+                            startLoginSequence();
+                        }, 100);
+                    }, 1000);
+                }, 5000);
+            }, 6000);
+        }
+
+        // Demo flow
+        function startRackSequence() {
+            setTimeout(() => {
+                const randomIndex = Math.floor(Math.random() * systems.length);
+                systems[randomIndex].status = 'locked';
+                systems[randomIndex].color = '#FFD700';
+                selectedSystem = systems[randomIndex];
+                
+                playTone(800, 0.2);
+                setTimeout(() => playTone(1000, 0.2), 200);
+                showNotification('Pool Locked', `System ${selectedSystem.id} — humans engaged`);
+                
+                // Re-render rack to show the locked light
+                initRack();
+                
+                setTimeout(() => {
+                    document.getElementById('bioText').textContent = 
+                        `Confirming validator access to system ${selectedSystem.id}...`;
+                    showScene('biometric');
+                    
+                    setTimeout(() => {
+                        playTone(523, 0.2);
+                        document.getElementById('reviewSystemId').textContent = selectedSystem.id;
+                        activeTab = 'pattern';
+                        showScene('review');
+                        updateReviewContent();
+                        // Reset active tab visual
+                        document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+                        document.querySelector('.tab').classList.add('active');
+                        startCountdown();
+                    }, 4000);
+                }, 4000);
+            }, 8000);
+        }
+
+        function startLoginSequence() {
+            setTimeout(() => {
+                playTone(440, 0.3);
+                setTimeout(() => {
+                    showScene('rack');
+                    initRack();
+                    showNotification('QVN Connected', 'Identity verified — connecting to Global Rack');
+                    
+                    // Only start rack sequence if not in resolution mode
+                    if (!isResolution) {
+                        startRackSequence();
+                    }
+                }, 1000);
+            }, 5000);
+        }
+
+        // Initialize
+        window.onload = function() {
+            startLoginSequence();
+        };
+    </script>
+</body>
+</html>
