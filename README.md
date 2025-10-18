@@ -101,8 +101,7 @@ This repository represents the **reference implementation** of QSAFP v2.1, which
 
 ---
 
-## ⚡ QVN Validator Network Demo — Interactive
-<h2 align="center">a Recording Only</h2>
+## ⚡ QVN Validator Network Demo — Interactive (recording only)
 
 <p align="center">
   <img src="ASSETS/QVN-INTERACTIVE-1.png"
