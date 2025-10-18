@@ -124,6 +124,15 @@ You will be able to interact wherever you see the check. ✅
 QVN — Quantum Validator Network in motion.  
 Verifying biometric signature... trust rendered at runtime.
 </em></p>
+## ⚙️ QVN Interactive Demo
+
+Experience the Quantum Validator Network in action — the human-aligned heartbeat of QSAFP.
+
+🧩 [**Open the HTML Demo →**](QVN_DEMO.html)  
+📘 [**Read the Full Walkthrough →**](QVN_DEMO.md)
+
+> _“Every AI node is a contract. Every reauth, a renewal of human trust.”_
+
 
 
 
