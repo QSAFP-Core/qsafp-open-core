@@ -63,7 +63,7 @@
 > “The open-core momentum speaks volumes.”
 
 <p align="center">
-  <img src="ASSETS/QSAFP-GitHub_Traffic_Dashboard_10-17-25.png" width="720" style="border-radius:12px;box-shadow:0 0 14px rgba(0,255,255,0.4);" alt="GitHub Traffic Dashboard">
+  <img src="ASSETS/QSAFP-GitHub_Traffic_10-17-25.png" width="720" style="border-radius:12px;box-shadow:0 0 14px rgba(0,255,255,0.4);" alt="GitHub Traffic Dashboard">
 </p>
 
 > 📊 **Insight:**  
@@ -78,4 +78,5 @@
 > — **BWRCI / QSAFP Core Team**
 
 --- 
+
 
