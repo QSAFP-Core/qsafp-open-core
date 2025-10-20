@@ -108,36 +108,6 @@ Target overhead < 3 %, lease validation < 100 μs, power < 2 %.
 🎮 See It in Action
 Live QVN Inference Continuum
 ---
-
-### ⚡ Inference Oversight Visualization  
-
-<p align="center">
-  <img src="ASSETS/✅QSAFP_Inference_in_Motion.gif"
-       alt="QSAFP Inference Continuum — validator consensus in action"
-       width="760"
-       style="border-radius:10px; box-shadow:0 0 16px rgba(0,255,255,0.4);">
-  <br>
-  <em>Real-time inference lease validation and quorum consensus cycle.</em>
-</p>
-
----
-
-### 🧩 QVN Validator Network (Interactive Demo Recording)
-
-<p align="center">
-  <a href="https://qsafp-core.github.io/qsafp-open-core/CHIP_DEMOS/qvn_inference_continuum/">
-    <img src="ASSETS/QVN_DEMO1-18mb.gif"
-         alt="Quantum Validator Network interactive demo recording"
-         width="760"
-         style="border-radius:10px; box-shadow:0 0 18px rgba(0,180,255,0.4);">
-  </a>
-  <br>
-  <em>QVN — the human-aligned heartbeat of QSAFP. Every AI node is a contract. Every reauth, a renewal of human trust.</em>
-</p>
----
-QVN Interactive Demo (Recording)
-### 🧩 QVN Validator Network (Interactive Demo Recording)
-
 <p align="center">
   <a href="https://qsafp-core.github.io/qsafp-open-core/CHIP_DEMOS/qvn_inference_continuum/">
     <img src="ASSETS/QVN_DEMO1-18mb.gif"
