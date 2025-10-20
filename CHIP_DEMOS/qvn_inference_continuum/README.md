@@ -7,9 +7,9 @@
 
 ## 📘 Overview
 
-![Validator Consensus: TRUE (6/6) — Inference layer live – outputs in motion.](../../ASSETS/Gif-QVN_Inference_Oversight_Continuum.gif)
+![Validator Consensus: TRUE (3/5) — Inference layer live – outputs in motion.](../../ASSETS/Gif-QVN_Inference_Oversight_Continuum.gif)
 
-*"Validator Consensus: TRUE (6/6)" – "Inference layer live – outputs in motion."*
+*"Validator Consensus: TRUE (3/5)" – "Inference layer live – outputs in motion."*
 
 The **QVN Inference Continuum** demo showcases *browser-ready live simulations* of how QSAFP enforces AI safety directly at the inference layer through quorum-verified validator oversight. No build steps or compilers — just open in a browser and watch trust in motion.
 
@@ -31,14 +31,14 @@ This demo reads `data.json` every few seconds to simulate validator consensus in
   ],
   "consensus": {
     "quorum": "TRUE",
-    "ratio": "6/6",
+    "ratio": "3/5",
     "inference_layer": "live",
     "outputs": "in motion"
   }
 }
 ```
 
-**Validator Consensus: TRUE (6/6)**  
+**Validator Consensus: TRUE (3/5)**  
 *Inference layer live — outputs in motion.*
 
 ---
