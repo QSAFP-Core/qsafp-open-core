@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="./ASSETS/QSAFP Quantum-Secured FailSafe.jpg" width="160" alt="QSAFP Logo"/>
+<img src="./ASSETS/QSAFP Quantum-Secured FailSafe.jpg" width="180" alt="QSAFP Logo"/>
 
 ### 🧠 Quantum-Secured AI Fail-Safe Protocol (QSAFP)
 
@@ -34,7 +34,16 @@ _47 KB firmware layer • &lt;100 μs overhead • Zero silicon changes_
 - **Standards Aligned:** NIST AI RMF submission (Oct 2025)
 - **Low Risk:** firmware-only integration with TEE / secure boot
 
----
+### ⚡ Inference Oversight Visualization  
+
+<p align="center">
+  <img src="ASSETS/✅QSAFP_Inference_in_Motion.gif"
+       alt="QSAFP Inference Continuum — validator consensus in action"
+       width="760"
+       style="border-radius:10px; box-shadow:0 0 16px rgba(0,255,255,0.4);">
+  <br>
+  <em>Real-time inference lease validation and quorum consensus cycle.</em>
+</p>
 
 ## 🚀 Pilot Partner Program (Q1 2026)
 
