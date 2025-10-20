@@ -142,8 +142,6 @@ qsafp_log_event(inference_id, validator_response, timestamp);
 
 <---
 
-### 🧩 QVN Validator Network (Demo Recording)
-
 <p align="center">
   <img src="ASSETS/QVN-INTERACTIVE-1.png"
        alt="QVN Interactive Validator Demo — Renewal flow of human-AI trust"
