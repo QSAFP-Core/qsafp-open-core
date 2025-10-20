@@ -140,23 +140,42 @@ qsafp_log_event(inference_id, validator_response, timestamp);
 
 ### 🧩 QVN Validator Network (Demo Recording)
 
+<---
+
+### 🧩 QVN Validator Network (Demo Recording)
+
 <p align="center">
-  <img src="./ASSETS/QVN_DEMO1-18mb.gif"
-       alt="QVN Validator Demo — consensus in motion"
+  <img src="ASSETS/QVN-INTERACTIVE-1.png"
+       alt="QVN Interactive Validator Demo — Renewal flow of human-AI trust"
        width="760"
-       style="border-radius:10px; box-shadow:0 0 18px rgba(0,180,255,0.4);">
-  <br>
-  <em>Validator consensus in motion — every lease renewal verified by quorum.</em>
+       style="border-radius:10px; box-shadow:0 0 18px rgba(255,128,0,0.4);">
 </p>
+
+<p align="center"><em>
+You will be able to interact wherever you see the check. ✅  
+Each session demonstrates real-time biometric validation, quorum review, and consensus reward cycles.
+</em></p>
 
 <p align="center">
   <a href="https://qsafp-core.github.io/qsafp-open-core/CHIP_DEMOS/qvn_inference_continuum/">
-    🌐 <strong>Launch Interactive Demo →</strong>
+    🌐 <strong>Launch Interactive QVN Demo →</strong>
   </a>
 </p>
 
 ---
 
+<p align="center">
+  <img src="ASSETS/QVN_DEMO1-18mb.gif"
+       alt="Quantum Validator Network interactive demo recording"
+       width="760"
+       style="border-radius:10px; box-shadow:0 0 18px rgba(0,180,255,0.4);">
+</p>
+
+<p align="center"><em>
+QVN — the human-aligned heartbeat of QSAFP.  
+Every AI node is a contract. Every reauth, a renewal of human trust.
+</em></p>
+---
 ## 🎬 See It in Action
 
 ### Live QVN Inference Continuum
