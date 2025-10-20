@@ -105,6 +105,17 @@ All metrics simulated on NVIDIA L4 architecture; on-chip validation pending pilo
 
 Target overhead < 3 %, lease validation < 100 μs, power < 2 %.
 
+---
+
+### 🧩 QVN Validator Network (Demo Recording)
+
+![QVN Validator Demo](ASSETS/QVN_DEMO1-18mb.gif)
+*Validator consensus in motion — every lease renewal verified by quorum.*
+
+[🌐 Launch Interactive Demo →](https://qsafp-core.github.io/qsafp-open-core/CHIP_DEMOS/qvn_inference_continuum/)
+
+---
+
 🎮 See It in Action
 Live QVN Inference Continuum
 ---
