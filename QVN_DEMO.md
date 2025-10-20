@@ -10,11 +10,7 @@
 
 ## 🎮 Launch the Interactive Demo
 
-<p align="center">
-  <img src="DEMO/ASSETS/QVN-INTERACTIVE-1.png" width="720" style="border-radius:12px;box-shadow:0 0 14px rgba(0,255,255,0.4);" alt="QVN Interactive Demo">
-</p>
-
-> 🧩 [**Open QVN_DEMO.html**](DEMO/QVN_DEMO.html)  
+> 🧩 [**Open QVN_DEMO.html**]Go straight to: [https://qsafp.org](https://qsafp.org)
 > Includes biometric handshake, validator pool selection, review interface, vote cycle, and payout logic.  
 > *(Best viewed in desktop browser — full-screen immersive mode.)*
 
