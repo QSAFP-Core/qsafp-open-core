@@ -202,6 +202,13 @@ void qsafp_check_lease_expiry(void);
 ### `qsafp_request_lease_renewal()`
 
 Asynchronously request lease renewal from validator quorum.
+> **Timing and Consensus Behavior**  
+> QVN operates on a dual-track renewal system:
+> - **Track A (Machine Attestation):** Local firmware attestation completes in <1 second, ensuring uninterrupted runtime safety.  
+> - **Track B (Validator Consensus):** Validator quorum (3-of-5) typically finalizes within ~60 seconds asynchronously.  
+> Human validators may review logs within policy-defined windows (5–30 minutes) without affecting runtime performance.  
+> 
+> This API call initiates the renewal request asynchronously, allowing inference workloads to continue while consensus and human validation complete in parallel.
 
 ```c
 qsafp_status_t qsafp_request_lease_renewal(
