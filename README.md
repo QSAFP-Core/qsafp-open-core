@@ -95,7 +95,8 @@ _47 KB firmware layer • <100 μs overhead • Zero silicon changes_
 ### Core Mechanisms
 
 1. **Ephemeral Key Lease (EKL)** — time-bounded execution window + auto expiry.  
-2. **Validator Consensus Network** — 3-of-5 quorum approval under 1 s.  
+2. **Validator Consensus Network** — 3-of-5 quorum approval typically completes within ~60 seconds.
+Local machine attestation ensures uninterrupted operation while validators confirm renewal asynchronously.
 3. **Fail-Safe Rollback** — deterministic state containment on anomaly.
 
 ### Integration Hooks (C)
