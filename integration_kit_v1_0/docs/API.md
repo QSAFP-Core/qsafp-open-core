@@ -431,3 +431,21 @@ typedef enum {
     FAILSAFE_NETWORK_TIMEOUT,
     FAILSAFE_MANUAL_TRIGGER
 } qsafp_failsafe_reason_t;
+```
+---
+
+## 6. Cryptographic Operations *(Reserved)*  
+Interfaces for post-quantum key exchange and signature verification will be defined in version 1.1.
+
+## 7. Configuration *(Reserved)*  
+Runtime configuration and lease tuning parameters (firmware-level).
+
+## 8. Error Codes *(Reserved)*  
+Comprehensive list of error enumerations will be consolidated in Appendix A of the integration guide.
+
+---
+
+### Timing Clarification
+> **Note:** All sub-second timing references in this API refer exclusively to automated machine attestation cycles (Track A).  
+> Human validator reviews (Track B) occur asynchronously within configurable policy windows and do not impact live runtime or inference throughput.
+
