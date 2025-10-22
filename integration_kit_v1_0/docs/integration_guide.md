@@ -93,9 +93,6 @@ python demo/simple\_loop\_demo.py --json
 
 [Validator] Event: shutdown | Tick: 5 | Status: completed
 ```)  
-scroll **one line below that**, hit **Enter**, and then **paste this Markdown block**:  
-
-```markdown
 ---
 ### Implementation Note
 > This integration stub demonstrates QSAFP’s heartbeat and validation event flow.  
