@@ -195,7 +195,8 @@ Every AI node is a contract. Every reauth, a renewal of human trust.
 ## 🧩 Pilot Roadmap (12 Weeks)
 
 **Phase 1: Integration** → fail-safe demo on dev board  
-**Phase 2: Validation** → <2% perf impact confirmed  
+**Phase 2: Validation** → Performance overhead measured under ~2 %.
+Attestation and logging occur asynchronously, ensuring negligible runtime impact. 
 **Phase 3: Production** → full validator network + TPM logging + joint whitepaper
 
 ---
