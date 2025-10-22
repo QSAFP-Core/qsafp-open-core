@@ -91,5 +91,20 @@ python demo/simple\_loop\_demo.py --json
 
 \[Validator] Event: shutdown | Tick: 5 | Status: completed
 
+```
+[Validator] Event: shutdown | Tick: 5 | Status: completed
+```)  
+scroll **one line below that**, hit **Enter**, and then **paste this Markdown block**:  
+
+```markdown
+---
+### Implementation Note
+> This integration stub demonstrates QSAFP’s heartbeat and validation event flow.  
+> In live deployments, QVN operates under a dual-track renewal model:
+> - **Track A (Machine Attestation):** Executes locally in <1 second for continuous runtime safety.  
+> - **Track B (Validator Consensus):** Completes asynchronously (typically within ~60 seconds) with optional human validation windows (5–30 minutes).  
+> 
+> The firmware and validator examples provided here illustrate Track A behavior; Track B consensus runs in parallel without interrupting inference workloads.
+
 
 
