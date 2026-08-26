@@ -1,5 +1,7 @@
 <div align="center">
 
+<img src="./ASSETS/OCUP-Hero.png" width="100%" alt="OCUP — One Chip Unified Protocol hero graphic">
+
 # QSAFP Open Core
 
 ### An OCUP-aligned reference surface for Temporal Authority Governance
