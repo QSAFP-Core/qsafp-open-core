@@ -155,6 +155,12 @@ The current Makefile builds the illustrative C core with the stub HAL and runs t
 5. Align the separate AEGES repository and publish cross-repository claim boundaries.
 6. Continue RAAVE signaling research, including assessment of authenticated ultrasonic channels.
 
+## Standards and IP posture
+
+QSAFP is part of the unified OCUP open-core initiative, with an implementation-neutral and FRAND-friendly path toward standards adoption.
+
+See [Standards and IP posture](STANDARDS_AND_IP.md).
+
 ## Security and responsible use
 
 Do not rely on this repository as a production safety control. Report security concerns through [SECURITY.md](SECURITY.md). Do not publish sensitive vulnerabilities before coordinated review.
